@@ -20,6 +20,13 @@
             }
 
             that.set("isLoggedIn", true);
+            $.mobile.changePage("#main", { transition: "slide" });
+            $('#login').submit(function () {
+	    		$(this).hide();
+	    		_login = true;
+	    		return false;
+	    	});
+
         },
 
         onLogout: function () {
