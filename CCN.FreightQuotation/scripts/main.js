@@ -18,9 +18,13 @@ quotationApp.prototype = function() {
     _login = false,
     
     run = function(){
-        var that = this;
+        var that = this,
+        $seatPicker=$('#seatPicker');
+        $('#tripDetail').on('pagebeforeshow',$.proxy(_initTripDetail,that));
+        $('#boardingPass').on('pageshow',$.proxy(_initBoardingPass,that));
         $('#home').on('pagebeforecreate',$.proxy(_initHome,that));
         $('#checkIn').on('pageshow', $.proxy(_initCheckIn,that));
+        
         
         $('#myTripsListView').on('click', 'li', function () {
         	var item = $(this);
@@ -98,10 +102,10 @@ quotationApp.prototype = function() {
         $flightList = $('#myTripsListView');
 		_customerData = data;
 		$('#ffname').text(data.firstName);
-		$('#ffnum').text(data.ffNum);
-		$('#currentStatus').text(data.status);
-		$('#miles').text(data.miles);
-		$('#numberOfFlights').text(data.flights.length);
+		//$('#ffnum').text(data.ffNum);
+		//$('#currentStatus').text(data.status);
+		//$('#miles').text(data.miles);
+		//$('#numberOfFlights').text(data.flights.length);
 		for (var i in data.flights) {
 			var flight = data.flights[i],
             currentSegment = flight.segments[flight.currentSegment];
