@@ -18,9 +18,13 @@ quotationApp.prototype = function() {
     _login = false,
     
     run = function(){
-        var that = this;
+        var that = this,
+        $seatPicker=$('#seatPicker');
+        $('#tripDetail').on('pagebeforeshow',$.proxy(_initTripDetail,that));
+        $('#boardingPass').on('pageshow',$.proxy(_initBoardingPass,that));
         $('#home').on('pagebeforecreate',$.proxy(_initHome,that));
         $('#checkIn').on('pageshow', $.proxy(_initCheckIn,that));
+        
         
         $('#myTripsListView').on('click', 'li', function () {
         	var item = $(this);
@@ -70,7 +74,7 @@ quotationApp.prototype = function() {
 	    	$.mobile.changePage("#logon", { transition: "flip" });
 	    	$('#login').submit(function () {
 	    		$(this).hide();
-	    		_login = true;                
+	    		_login = true;
 	    		quotationData.logOn($('#userName').val(), $('#pwd').val(),_handleLogOn);
 	    		return false;
 	    	});
@@ -88,35 +92,35 @@ quotationApp.prototype = function() {
     },
     
     _handleLogOn = function (ff, success) {
-		if (success) {            
+		if (success) {
 			_ffNum = ff;
 			quotationData.getDataforFF(_ffNum,_handleDataForFF);
 		}
 	},
     
     _handleDataForFF = function (data) {
-        //$flightList = $('#myTripsListView');
-		//_customerData = data;
-		//$('#ffname').text(data.firstName);
+        $flightList = $('#myTripsListView');
+		_customerData = data;
+		$('#ffname').text(data.firstName);
 		//$('#ffnum').text(data.ffNum);
 		//$('#currentStatus').text(data.status);
 		//$('#miles').text(data.miles);
 		//$('#numberOfFlights').text(data.flights.length);
-		//for (var i in data.flights) {
-		//	var flight = data.flights[i],
-        //    currentSegment = flight.segments[flight.currentSegment];
-		//	$flightList.append('<li id="' + flight.id + '"><a href="#tripDetail" data-transition="slide">' + currentSegment.from + ' to ' + currentSegment.to + '</a></li>');
-		//	var item = $('#' + flight.id, $flightList);
-		//	item.data('flight', flight);
-		//	if (flight.timeToCheckIn) {
+		for (var i in data.flights) {
+			var flight = data.flights[i],
+            currentSegment = flight.segments[flight.currentSegment];
+			$flightList.append('<li id="' + flight.id + '"><a href="#tripDetail" data-transition="slide">' + currentSegment.from + ' to ' + currentSegment.to + '</a></li>');
+			var item = $('#' + flight.id, $flightList);
+			item.data('flight', flight);
+			if (flight.timeToCheckIn) {
 
-		//		item.addClass('checkIn');
-		//		$('a', item).attr('href', '#checkIn');
-		//	}
-		//	else {
-		//		item.addClass('tripDetail');
-		//	}
-		//}
+				item.addClass('checkIn');
+				$('a', item).attr('href', '#checkIn');
+			}
+			else {
+				item.addClass('tripDetail');
+			}
+		}
 		$.mobile.changePage('#home', { transition: 'flip' });
 
 	};
