@@ -75,7 +75,7 @@ quotationApp.prototype = function() {
 	    	$('#login').submit(function () {
 	    		$(this).hide();
 	    		_login = true;
-	    		quotationData.logOn($('#userName').val(), $('#pwd').val(),_handleLogOn);
+	    		rfqData.logOn($('#userName').val(), $('#pwd').val(),_handleLogOn);
 	    		return false;
 	    	});
 	    }
@@ -94,7 +94,7 @@ quotationApp.prototype = function() {
     _handleLogOn = function (ff, success) {
 		if (success) {
 			_ffNum = ff;
-			quotationData.getDataforFF(_ffNum,_handleDataForFF);
+			rfqData.getDataforFF(_ffNum,_handleDataForFF);
 		}
 	},
     
