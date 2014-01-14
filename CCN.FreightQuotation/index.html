@@ -23,12 +23,11 @@
         <script type="text/javascript" src="scripts/jquery.mmenu.js"></script>
         <script type="text/javascript">
             $(function() {
-                $('nav#menu').mmenu();
+                $("nav#menu").mmenu();
             });
         </script>
     </head>
     <body>
-
         <!-- home page -->
         <div id="home" data-role="page" data-mini="true">
             <div id="header" data-role="header" data-tap-toggle="false">
@@ -39,54 +38,9 @@
             </div>
 
             <div data-role="content">
-                <ul data-role="listview" id="myTripsView" data-inset="true" data-theme="d">
-                    <li>
-                        <a href="#myTrips" data-transition="slide">
-                            MyTrips <span id="numberOfFlights"></span>
-                        </a>
-                    </li>
-                </ul>
-                <ul data-role="listview" id="flightStatusView" data-inset="true" data-theme="d">
-                    <li>
-                        <a href="#flightStatus" data-transition="slide">Flight Status</a>
-                    </li>
-                </ul>
-                <ul data-role="listview" id="bagTrackView" data-inset="true" data-theme="d">
-                    <li>
-                        <a href="#bagTrack" data-transition="slide">Track your bag</a>
-                    </li>
-                </ul>
-                <ul data-role="listview" id="programProgressView" data-inset="true" data-theme="d">
-                    <li>
-                        <a href="#programProgress" data-transition="slide">Mileage program progress</a>
-                    </li>
-                </ul>
-                <ul data-role="listview" id="settingsView" data-inset="true" data-theme="d">
-                    <li>
-                        <a href="#settings" data-transition="slide">Settings</a>
-                    </li>
-                </ul>
+                <p> This is the Summary page.</p>
+                <a href="index.html#create"> go to Create page</a>
             </div>
-
-            <nav id="menu">
-                <ul>
-                    <li class="Selected">
-                        <a href="">Home</a>
-                    </li>
-                    <li>
-                        <a href="#create">Create Quotation</a>
-                    </li>
-                    <li>
-                        <a href="">Search Quotation</a>
-                    </li>
-                    <li>
-                        <a href="">Settings</a>
-                    </li>
-                    <li>
-                        <a href="">Log Out</a>
-                    </li>
-                </ul>
-            </nav>
         </div>
 
         <!-- logon page -->
@@ -95,6 +49,7 @@
                 <h1>Login</h1>
             </div>
             <div data-role="content">
+                <a href="#create"> go to create page</a>
                 <form id="login">
                     Username:
                     <input type="text" id="userName" value="jaxon.daniels@gmail.com" />
@@ -104,7 +59,7 @@
                 </form>
             </div>
         </div>
-        
+
         <!-- create page -->
         <div id="create" data-role="page">
             <div data-role="header" data-position="fixed"  data-tap-toggle="false">
@@ -112,13 +67,35 @@
             </div>
             <div data-role="content">
                 <p> This is the Create page.</p>
+                <a href="#logon"> go to logon page</a>
             </div>
         </div>
+
+        <!-- main menu -->
+        <nav id="menu">
+            <ul>
+                <li class="Selected">
+                    <a href="">Home</a>
+                </li>
+                <li>
+                    <a href="index.html#create">Create Quotation</a>
+                </li>
+                <li>
+                    <a href="">Search Quotation</a>
+                </li>
+                <li>
+                    <a href="">Settings</a>
+                </li>
+                <li>
+                    <a href="">Log Out</a>
+                </li>
+            </ul>
+        </nav>
     </body>
 </html>
 
 <script>
-    var rfqData = new quotationData(2000);
-    var rfqApp = new quotationApp();
-    rfqApp.run();
+    //var rfqData = new quotationData(2000);
+    //var rfqApp = new quotationApp();
+    //rfqApp.run();
 </script>
