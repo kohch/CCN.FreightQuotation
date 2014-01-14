@@ -12,6 +12,9 @@
     text-shadow:none;
 }
  
+#create > .ui-input-text{
+    width:250px;
+}
 .ui-page {
     background:#d3dfe5;
 }
