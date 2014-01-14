@@ -43,7 +43,7 @@
                             'closed.mm',
                             function() {
                                 $.mobile.changePage(_t.href, {
-                                    transition: 'slide'
+                                    transition: 'fade'
                                 });
                             }
                             );
@@ -80,35 +80,33 @@
 
             <div data-role="content">
                 <p> This is the Summary page.</p>
-                <a href="index.html#create"> go to Create page</a>
             </div>
         </div>
-
+        
+        <!-- create page -->
+        <div id="create" data-role="page">
+            <div id="header" data-role="header" data-tap-toggle="false">
+                <a id="menubtn" href="#menu"></a>
+                <h1>Create</h1>
+            </div>
+            <div data-role="content">
+                <p> This is the Create page.</p>
+            </div>
+        </div>
+        
         <!-- logon page -->
         <div id="logon" data-role="page">
             <div data-role="header" data-position="fixed"  data-tap-toggle="false">
                 <h1>Login</h1>
             </div>
             <div data-role="content">
-                <a href="#create"> go to create page</a>
                 <form id="login">
-                    Username:
+                    Email:
                     <input type="text" id="userName" value="jaxon.daniels@gmail.com" />
                     Password:
                     <input type="password" id="pwd" value="P2ssw0rd" />
                     <input type="submit" value="Login" />
                 </form>
-            </div>
-        </div>
-
-        <!-- create page -->
-        <div id="create" data-role="page">
-            <div data-role="header" data-position="fixed"  data-tap-toggle="false">
-                <h1>Create</h1>
-            </div>
-            <div data-role="content">
-                <p> This is the Create page.</p>
-                <a href="#logon"> go to logon page</a>
             </div>
         </div>
 
@@ -136,7 +134,7 @@
 </html>
 
 <script>
-    //var rfqData = new quotationData(2000);
-    //var rfqApp = new quotationApp();
-    //rfqApp.run();
+    var rfqData = new quotationData(2000);
+    var rfqApp = new quotationApp();
+    rfqApp.run();
 </script>

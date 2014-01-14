@@ -121,7 +121,7 @@ quotationApp.prototype = function() {
 				item.addClass('tripDetail');
 			}
 		}
-		$.mobile.changePage('#home', { transition: 'flip' });
+		$.mobile.changePage('#home', { transition: 'fade' });
 
 	};
     
