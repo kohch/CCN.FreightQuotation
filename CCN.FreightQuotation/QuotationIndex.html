@@ -24,7 +24,7 @@
         <script type="text/javascript">
 
             $(function() {
-                $('#menu').mmenu({
+                $('#my-menu').mmenu({
                     onClick		: {
                         blockUI			: false,
                         preventDefault	: function() {
@@ -35,11 +35,11 @@
                     pageSelector: 'div[data-role="page"]:first'
                 });
 
-                $('#menu a[rel!="external"]').on(
+                $('#my-menu a[rel!="external"]').on(
                     'click',
                     function() {
                         var _t = this;
-                        $('#menu').one(
+                        $('#my-menu').one(
                             'closed.mm',
                             function() {
                                 $.mobile.changePage(_t.href, {
@@ -54,8 +54,8 @@
             $(document).on(
                 'pageshow',
                 function(e, ui) {
-                    $('#menu').trigger('setPage', [ $(e.target) ]);
-                    $('#menu a').each(
+                    $('#my-menu').trigger('setPage', [ $(e.target) ]);
+                    $('#my-menu a').each(
                         function() {
                             if ($.mobile.path.parseUrl(this.href).href == window.location.href) {
                                 $(this).trigger('setSelected.mm');
@@ -72,14 +72,14 @@
         <!-- home page -->
         <div id="home" data-role="page" data-mini="true">
             <div id="header" data-role="header" data-tap-toggle="false">
-                <a id="menubtn" href="#menu"></a>
+                <a id="menubtn" href="#my-menu"></a>
                 <h1>
                     Hi <span id="ffname"></span>!
                 </h1>
             </div>
 
             <div data-role="content">
-                <p> This is the RFQ Summary page.</p>
+                <p> This is the Quotation Summary page.</p>
                 <a href="index.html#create"> go to Create page</a>
             </div>
         </div>
@@ -104,7 +104,7 @@
         <!-- create page -->
         <div id="create" data-role="page">
             <div data-role="header" data-tap-toggle="false">
-                <a id="menubtn" href="#menu"></a>
+                <a id="menubtn" href="#my-menu"></a>
                 <h1>Create</h1>
             </div>
             <div data-role="content">
@@ -114,16 +114,16 @@
         </div>
 
         <!-- main menu -->
-        <nav id="menu">
+        <nav id="my-menu">
             <ul>
                 <li class="Selected">
                     <a href="">Home</a>
                 </li>
                 <li>
-                    <a href="index.html#create">Create RFQ</a>
+                    <a href="index.html#create">Create Quotation</a>
                 </li>
                 <li>
-                    <a href="">Search RFQ</a>
+                    <a href="">Search Quotation</a>
                 </li>
                 <li>
                     <a href="">Settings</a>
