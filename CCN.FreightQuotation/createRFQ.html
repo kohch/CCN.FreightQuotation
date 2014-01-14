@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title></title>
+        <script type="text/javascript" src="scripts/jquery.mmenu.js"></script>
+        <script type="text/javascript">
+
+            $(function() {
+                $('#menu').mmenu({
+                    onClick		: {
+                        blockUI			: false,
+                        preventDefault	: function() {
+                            return this.rel != 'external';
+                        }
+                    }
+                }, {
+                    pageSelector: 'div[data-role="page"]:first'
+                });
+
+                $('#menu a[rel!="external"]').on(
+                    'click',
+                    function() {
+                        var _t = this;
+                        $('#menu').one(
+                            'closed.mm',
+                            function() {
+                                $.mobile.changePage(_t.href, {
+                                    transition: 'fade'
+                                });
+                            }
+                            );
+                    }
+                    );
+            });
+            
+            $(document).on(
+                'pageshow',
+                function(e, ui) {
+                    $('#menu').trigger('setPage', [ $(e.target) ]);
+                    $('#menu a').each(
+                        function() {
+                            if ($.mobile.path.parseUrl(this.href).href == window.location.href) {
+                                $(this).trigger('setSelected.mm');
+                            }
+                        }
+                        );
+                }
+                );
+            
+            
+        </script>
+    </head>
+    <body>
+        <!-- create page -->
+        <div id="create" data-role="page">
+            <div data-role="header" data-tap-toggle="false">
+                <a id="menubtn" href="#menu"></a>
+                <h1>Create</h1>
+            </div>
+            <div data-role="content">
+                <p> This is the Create page.</p>
+            </div>
+        </div>
+        <!-- main menu -->
+        <nav id="menu">
+            <ul>
+                <li class="Selected">
+                    <a href="">Home</a>
+                </li>
+                <li>
+                    <a href="createRFQ.html">Create RFQ</a>
+                </li>
+                <li>
+                    <a href="#search">Search RFQ</a>
+                </li>
+                <li>
+                    <a href="#settings">Settings</a>
+                </li>
+                <li>
+                    <a href="">Log Out</a>
+                </li>
+            </ul>
+        </nav>
+    </body>
+</html>

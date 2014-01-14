@@ -69,7 +69,7 @@
         </script>
     </head>
     <body>
-        <!-- home page -->
+        <!-- Summary page -->
         <div id="home" data-role="page" data-mini="true">
             <div id="header" data-role="header" data-tap-toggle="false">
                 <a id="menubtn" href="#menu"></a>
@@ -79,34 +79,45 @@
             </div>
 
             <div data-role="content">
-                <p> This is the Summary page.</p>
+                <p> This is the RFQ Summary page.</p>               
             </div>
         </div>
-        
-        <!-- create page -->
-        <div id="create" data-role="page">
-            <div id="header" data-role="header" data-tap-toggle="false">
-                <a id="menubtn" href="#menu"></a>
-                <h1>Create</h1>
-            </div>
-            <div data-role="content">
-                <p> This is the Create page.</p>
-            </div>
-        </div>
-        
+
         <!-- logon page -->
         <div id="logon" data-role="page">
             <div data-role="header" data-position="fixed"  data-tap-toggle="false">
                 <h1>Login</h1>
             </div>
-            <div data-role="content">
+            <div data-role="content">                
                 <form id="login">
-                    Email:
+                    Username:
                     <input type="text" id="userName" value="jaxon.daniels@gmail.com" />
                     Password:
                     <input type="password" id="pwd" value="P2ssw0rd" />
                     <input type="submit" value="Login" />
                 </form>
+            </div>
+        </div>
+
+        <!-- search page -->
+        <div id="search" data-role="page">
+            <div data-role="header" data-tap-toggle="false">
+                <a id="menubtn" href="#menu"></a>
+                <h1>Search</h1>
+            </div>
+            <div data-role="content">
+                <p> This is the Search page.</p>                
+            </div>
+        </div>
+        
+         <!-- settings page -->
+        <div id="settings" data-role="page">
+            <div data-role="header" data-tap-toggle="false">
+                <a id="menubtn" href="#menu"></a>
+                <h1>Settings</h1>
+            </div>
+            <div data-role="content">
+                <p> This is the Settings page.</p>                
             </div>
         </div>
 
@@ -117,13 +128,13 @@
                     <a href="">Home</a>
                 </li>
                 <li>
-                    <a href="index.html#create">Create Quotation</a>
+                    <a href="createRFQ.html">Create RFQ</a>
                 </li>
                 <li>
-                    <a href="">Search Quotation</a>
+                    <a href="index.html#search">Search RFQ</a>
                 </li>
                 <li>
-                    <a href="">Settings</a>
+                    <a href="index.html#settings">Settings</a>
                 </li>
                 <li>
                     <a href="">Log Out</a>
