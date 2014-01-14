@@ -94,7 +94,7 @@ quotationApp.prototype = function() {
     _handleLogOn = function (ff, success) {
 		if (success) {
 			_ffNum = ff;
-			rfqData.getDataforFF(_ffNum,_handleDataForFF);
+			rfqData.getDataforRFQSummary(_ffNum,_handleDataForRFQSummary);
 		}
 	},
     
@@ -120,6 +120,25 @@ quotationApp.prototype = function() {
 			else {
 				item.addClass('tripDetail');
 			}
+		}
+		$.mobile.changePage('#home', { transition: 'flip' });
+
+	};
+    
+    _handleDataForRFQSummary = function (data) {
+        $myRFQSummary = $('#myRFQSummaryListView');
+		_rfqSummaryData = data;
+		$('#ffname').text(data.firstName);
+		//$('#ffnum').text(data.ffNum);
+		//$('#currentStatus').text(data.status);
+		//$('#miles').text(data.miles);
+		//$('#numberOfFlights').text(data.flights.length);
+		for (var i in data.requestQuotation) {
+            var rfq = data.requestQuotation[i];
+           $myRFQSummary.append('<table><tr><th>' + rfq.origin + ' - ' + rfq.destination + '</th><th>&nbsp;<th>&nbsp;</th><th>' + rfq.status + '</th></tr><tr><td colspan="4">&nbsp;' + rfq.goodsDescription 
+            + '</td></tr><tr><td>&nbsp;' + rfq.commodity + '</td><td>' + rfq.pieces + ' pcs</td><td>&nbsp;' + rfq.weight + ' kg</td><td>&nbsp;' + rfq.volume + ' cubic m</td></tr><tr><td>&nbsp;' 
+            + 'Created Date<br />' + rfq.createDT + '</td><td>LogeIn Date<br />' + rfq.LogeInDT + '<br /></td><td>&nbsp;Collection Date<br />' + rfq.collectionDT + '<br /></td><td>&nbsp;Expiry Date<br />' 
+            + rfq.expireOn + '</td></tr></table><br />');
 		}
 		$.mobile.changePage('#home', { transition: 'flip' });
 
