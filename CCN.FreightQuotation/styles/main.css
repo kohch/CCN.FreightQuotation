@@ -1,3 +1,17 @@
+#menubtn {
+    background: url("../images/index.png") no-repeat scroll center center transparent;
+    display: block;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border:none;
+}
+#menu{
+    text-shadow:none;
+}
+ 
 .ui-page {
     background:#d3dfe5;
 }
@@ -20,6 +34,7 @@
 .ui-header.ui-bar-a > .ui-title {
     text-shadow:none;
 }
+
 .ui-footer {
     text-align: center;    
 }
@@ -59,7 +74,7 @@
 }
 .info > .info-label {
     color:#054251;
-    text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+    text-shadow: none;
     float:right;
     margin-right:10px;
     font-size:0.8em;
@@ -100,7 +115,7 @@
 	font-family: arial;
 	color: white;
 	font-size: 0.9em;
-	text-shadow: 0px 0px 3px rgba(0,0,0,0.75);
+	text-shadow: none;
 	padding: 0em 0.3em;
 	border-radius: 0.4em;
     margin-left:5px;
@@ -113,7 +128,7 @@
 
 /* BUTTON STYLES*/
 .ui-bar-a > .ui-btn-up-a {
-    border: 1px solid #2373A5;
+    /*border: 1px solid #2373A5;*/
     margin-top: 1px;
     background-image: -moz-linear-gradient(top, rgba(41,192,227,1) 0%, rgba(6,123,152,1) 100%); /* FF3.6+ */
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(41,192,227,1)), color-stop(100%,rgba(6,123,152,1))); /* Chrome,Safari4+ */
@@ -121,9 +136,10 @@
     background-image: -o-linear-gradient(top, rgba(41,192,227,1) 0%,rgba(6,123,152,1) 100%); /* Opera 11.10+ */
     background-image: -ms-linear-gradient(top, rgba(41,192,227,1) 0%,rgba(6,123,152,1) 100%); /* IE10+ */
     background-image: linear-gradient(to bottom, rgba(41,192,227,1) 0%,rgba(6,123,152,1) 100%); /* W3C */
+    
 }
 .ui-bar-a > .ui-btn-hover-a {
-    border: 1px solid #2373A5;
+    /*border: 1px solid #2373A5;*/
     margin-top: 1px;
     background-image: -moz-linear-gradient(top, rgba(6, 123, 152, 1) 0%, rgba(41, 192, 227, 1) 100%); /* FF3.6+ */
 	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(6, 123, 152, 1)), color-stop(100%, rgba(41, 192, 227, 1))); /* Chrome,Safari4+ */
@@ -137,7 +153,7 @@
 	border: 1px solid #456F9A;
 	color: white;
 	font-weight: bold;
-	text-shadow: 0 1px 1px #3E6790;
+	text-shadow: none;
 	background-image: -moz-linear-gradient(top, rgba(41,192,227,1) 0%, rgba(6,123,152,1) 100%); /* FF3.6+ */
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(41,192,227,1)), color-stop(100%,rgba(6,123,152,1))); /* Chrome,Safari4+ */
     background-image: -webkit-linear-gradient(top, rgba(41,192,227,1) 0%,rgba(6,123,152,1) 100%); /* Chrome10+,Safari5.1+ */
@@ -151,12 +167,12 @@
 }
 
 .ui-btn-active {
-	border: 1px solid #2373A5;
+	/*border: 1px solid #2373A5;*/
 	background: #5393C5;
 	font-weight: bold;
 	color: white;
 	cursor: pointer;
-	text-shadow: 0 1px 1px #3373A5;
+	text-shadow: none;
 	text-decoration: none;
 	background-image: -moz-linear-gradient(top, rgba(6, 123, 152, 1) 0%, rgba(41, 192, 227, 1) 100%); /* FF3.6+ */
 	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(6, 123, 152, 1)), color-stop(100%, rgba(41, 192, 227, 1))); /* Chrome,Safari4+ */
@@ -215,14 +231,4 @@
 	background: -o-linear-gradient(top, rgba(6, 123, 152, 1) 0%, rgba(41, 192, 227, 1) 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top, rgba(6, 123, 152, 1) 0%, rgba(41, 192, 227, 1) 100%); /* IE10+ */
 	background: linear-gradient(to bottom, rgba(6, 123, 152, 1) 0%, rgba(41, 192, 227, 1) 100%); /* W3C */
-}
-
-#header a {
-    background: url("../images/index.png") no-repeat scroll center center transparent;
-    display: block;
-    width: 40px;
-    height: 40px;
-    position: absolute;
-    top: 0px;
-    left: 0px;
 }
