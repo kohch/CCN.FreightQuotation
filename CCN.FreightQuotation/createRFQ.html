@@ -63,8 +63,20 @@
                         }
                         );
                 }
-                );
+                ); 
             
+            $(document).ready(function() {
+                $("#btnSave").click(function() {                    
+                    var str = "";
+                    $("select option:selected").each(function() {
+                        str += $(this).text() + "<br>";
+                    });
+                    $("#selectedrecipients").append("<p>" + str + "</p>");
+                }),
+                $("#btnSubmit").click(function() {                    
+                    alert("Submit button is clicked;");
+                });
+            });
             
         </script>
     </head>
@@ -72,7 +84,7 @@
         <div id="createpage1" data-role="page">
             <div data-role="header" data-tap-toggle="false">
                 <a id="menubtn" href="#menu"></a>
-                <h1>New RFQ</h1>                
+                <h1>New RFQ</h1>
             </div>
             <div data-role="content">
                 <input type="text" id="origin" value="Origin" />
@@ -84,35 +96,48 @@
                 <label for="lodgeindate">Lodge In Date:</label>
                 <input type="date" name="lodgeindate" id="lodgeindate">
                 <label for="collectiondate">Collection Date:</label>
-                <input type="date" name="collectiondate" id="collectiondate">    
+                <input type="date" name="collectiondate" id="collectiondate">
                 <a href="createRFQ.html#createpage2" data-role="button">Next</a>
             </div>
         </div>
         <div id="createpage2" data-role="page">
             <div data-role="header" data-tap-toggle="false">
                 <a id="menubtn" href="#menu"></a>
-                 <h1>New RFQ</h1>
+                <h1>New RFQ</h1>
                 <a href="createRFQ.html#createpage1" data-role="button">Back</a>
             </div>
             <div data-role="content">
                 <input type="text" id="contactname" value="Contact Name" />
                 <textarea name="goodsdescription" id="goodsdescription" value ="Goods Description"></textarea>
                 <input type="text" id="commodity" value="Commodity" />
-                <input type="text" id="recipient" value="Recipient" />
+                <select name="recipients" multiple="multiple" data-native-menu="false">
+                    <option>Choose recipients</option>
+                    <option value="recipient1">recipient 1</option>
+                    <option value="recipient2">recipient 2</option>
+                    <option value="recipient3">recipient 3</option>
+                    <option value="recipient4">recipient 4</option>
+                    <option value="recipient5">recipient 5</option>
+                </select>
                 <label for="validfrom">Valid From:</label>
                 <input type="date" name="validfrom" id="validfrom">
                 <label for="exipreon">Expire On:</label>
                 <input type="date" name="exipreon" id="exipreon">
-                <a href="createRFQ.html#createpage3" data-role="button">Save</a>
+                <a id="btnSave" href="createRFQ.html#createpage3" data-role="button">Save</a>
             </div>
         </div>
         <div id="createpage3" data-role="page">
             <div data-role="header" data-tap-toggle="false">
                 <a id="menubtn" href="#menu"></a>
-                 <h1>New RFQ</h1>                
+                <h1>New RFQ</h1>
             </div>
             <div data-role="content">
-              <input type="submit" value="Submit" onclick="alert($('#volume').val());" />
+                <p>
+                    Your request for quotation is saved! <br><br>
+                    
+                    Click submit to send to the recipients now.
+                </p>
+                <div id="selectedrecipients"></div>
+                <input id="btnSubmit" type="submit" value="Submit" />
             </div>
         </div>
         <!-- main menu -->
@@ -137,4 +162,3 @@
         </nav>
     </body>
 </html>
-    
