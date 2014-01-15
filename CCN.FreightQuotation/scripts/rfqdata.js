@@ -24,15 +24,15 @@ quotationData.prototype = function() {
 	},
 
 	getDataforFF = function(id, callback) {
-		fauxAjax(function () {
+		//fauxAjax(function () {
 			callback(ffInfo);
-		}, 'getting your data ...', this);
+		//}, 'getting your data ...', this);
 	},
     
 	logOn = function (uid, pwd, callback) {
-		fauxAjax(function () {
+		//fauxAjax(function () {
 			callback('12345678', true);
-		}, 'logging you in ...', this);
+		//}, 'logging you in ...', this);
 	},
     
 	fauxAjax = function fauxAjax(func, text, thisObj) {
