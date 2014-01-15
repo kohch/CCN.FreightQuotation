@@ -61,7 +61,7 @@
                                 $(this).trigger('setSelected.mm');
                             }
                         }
-                        );
+                        );                    
                 }
                 ); 
             
@@ -76,8 +76,9 @@
                     });
                     $("#selectedrecipients").append("<p>" + str + "</p>");
                 }),
+                
                 $("#btnSubmit").click(function() {                    
-                    alert("Call webservice to save the RFQ.");
+                    alert("Call webservice to save the RFQ.");                    
                 });
             });
             
@@ -96,10 +97,22 @@
                 <input type="text" id="weight" value="Weight" />
                 <input type="text" id="volume" value="1234" />
                 <input type="text" id="dimension" value="Dimension" />
-                <label for="lodgeindate">Lodge In Date:</label>
-                <input type="date" name="lodgeindate" id="lodgeindate">
-                <label for="collectiondate">Collection Date:</label>
-                <input type="date" name="collectiondate" id="collectiondate">
+                <div class="ui-grid-a">                    
+                    <div class="ui-block-a">
+                         <label for="lodgeindate">Lodge In Date:</label>
+                    </div>
+                    <div class="ui-block-b">
+                        <input type="date" name="lodgeindate" id="lodgeindate">
+                    </div>
+                </div>
+                <div class="ui-grid-a">                    
+                    <div class="ui-block-a">
+                         <label for="collectiondate">Collection Date:</label>
+                    </div>
+                    <div class="ui-block-b">
+                        <input type="date" name="collectiondate" id="collectiondate">
+                    </div>
+                </div>
                 <a href="createRFQ.html#createpage2" data-role="button">Next</a>
             </div>
         </div>
@@ -121,10 +134,22 @@
                     <option value="recipient4">recipient 4</option>
                     <option value="recipient5">recipient 5</option>
                 </select>
-                <label for="validfrom">Valid From:</label>
-                <input type="date" name="validfrom" id="validfrom">
-                <label for="exipreon">Expire On:</label>
-                <input type="date" name="exipreon" id="exipreon">
+                <div class="ui-grid-a">                    
+                    <div class="ui-block-a">
+                         <label for="validfrom">Valid From:</label>
+                    </div>
+                    <div class="ui-block-b">
+                        <input type="date" name="validfrom" id="validfrom">
+                    </div>
+                </div>
+                <div class="ui-grid-a">                    
+                    <div class="ui-block-a">
+                         <label for="exipreon">Expire On:</label>
+                    </div>
+                    <div class="ui-block-b">
+                        <input type="date" name="exipreon" id="exipreon">
+                    </div>
+                </div>
                 <a id="btnSave" href="createRFQ.html#createpage3" data-role="button">Save</a>
             </div>
         </div>
@@ -140,10 +165,10 @@
                     Click submit to send to the recipients now.
                 </p>
                 <div id="selectedrecipients"></div>
-                <input id="btnSubmit" type="submit" value="Submit" />
+                 <a id="btnSubmit" href="index.html#home" rel="external" data-role="button">Submit</a>
             </div>
         </div>
-        <!-- main menu -->
+        <!-- main menu -->  
         <nav id="menu">
             <ul>
                 <li>

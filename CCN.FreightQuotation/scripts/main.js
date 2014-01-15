@@ -20,10 +20,10 @@ quotationApp.prototype = function() {
     run = function(){
         var that = this,
         $seatPicker=$('#seatPicker');
-        $('#tripDetail').on('pagebeforeshow',$.proxy(_initTripDetail,that));
-        $('#boardingPass').on('pageshow',$.proxy(_initBoardingPass,that));
+       // $('#tripDetail').on('pagebeforeshow',$.proxy(_initTripDetail,that));
+       // $('#boardingPass').on('pageshow',$.proxy(_initBoardingPass,that));
         $('#home').on('pagebeforecreate',$.proxy(_initHome,that));
-        $('#checkIn').on('pageshow', $.proxy(_initCheckIn,that));
+        //$('#checkIn').on('pageshow', $.proxy(_initCheckIn,that));
         
         
         $('#myTripsListView').on('click', 'li', function () {
@@ -69,7 +69,8 @@ quotationApp.prototype = function() {
 	    $('#boardingpass-flight').text(flight);
     },
     
-    _initHome = function(){
+    _initHome = function(){ 
+        
         if (!_login) {
 	    	$.mobile.changePage("#logon", { transition: "flip" });
 	    	$('#login').submit(function () {
@@ -79,6 +80,9 @@ quotationApp.prototype = function() {
 	    		return false;
 	    	});
 	    }
+        else{
+            rfqData.getDataforRFQSummary(_ffNum,_handleDataForRFQSummary);
+        }
     },
     
     _initCheckIn = function(){

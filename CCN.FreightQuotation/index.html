@@ -60,7 +60,7 @@
             
             $(document).on(
                 'pageshow',
-                function(e, ui) {
+                function(e, ui) {                   
                     $('#menu').trigger('setPage', [ $(e.target) ]);
                     $('#menu a').each(
                         function() {
@@ -72,8 +72,8 @@
                 }
                 );
             
-            $(document).ready(function() {            
-                                
+            $(document).ready(function() {        
+                
                 $("#btnSearch").click(function() {                    
                     $.mobile.changePage("#home?origin=" + $("#origin").text(), {
                                     transition: 'fade'
