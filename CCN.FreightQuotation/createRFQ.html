@@ -72,7 +72,7 @@
         <div id="createpage1" data-role="page">
             <div data-role="header" data-tap-toggle="false">
                 <a id="menubtn" href="#menu"></a>
-                <h1>New RFQ</h1>                
+                <h1>New RFQ</h1>
             </div>
             <div data-role="content">
                 <input type="text" id="origin" value="Origin" />
@@ -84,21 +84,27 @@
                 <label for="lodgeindate">Lodge In Date:</label>
                 <input type="date" name="lodgeindate" id="lodgeindate">
                 <label for="collectiondate">Collection Date:</label>
-                <input type="date" name="collectiondate" id="collectiondate">    
+                <input type="date" name="collectiondate" id="collectiondate">
                 <a href="createRFQ.html#createpage2" data-role="button">Next</a>
             </div>
         </div>
         <div id="createpage2" data-role="page">
             <div data-role="header" data-tap-toggle="false">
                 <a id="menubtn" href="#menu"></a>
-                 <h1>New RFQ</h1>
+                <h1>New RFQ</h1>
                 <a href="createRFQ.html#createpage1" data-role="button">Back</a>
             </div>
             <div data-role="content">
                 <input type="text" id="contactname" value="Contact Name" />
                 <textarea name="goodsdescription" id="goodsdescription" value ="Goods Description"></textarea>
                 <input type="text" id="commodity" value="Commodity" />
-                <input type="text" id="recipient" value="Recipient" />
+                <label for="select-choice-0" class="select">Recipients:</label>
+                <select name="select-choice-0" id="select-choice-1">
+                    <option value="recipient1">Recipient 1</option>
+                    <option value="recipient2">Recipient 2</option>
+                    <option value="recipient3">Recipient 3</option>
+                    <option value="recipient4">Recipient 4</option>
+                </select>
                 <label for="validfrom">Valid From:</label>
                 <input type="date" name="validfrom" id="validfrom">
                 <label for="exipreon">Expire On:</label>
@@ -109,10 +115,10 @@
         <div id="createpage3" data-role="page">
             <div data-role="header" data-tap-toggle="false">
                 <a id="menubtn" href="#menu"></a>
-                 <h1>New RFQ</h1>                
+                <h1>New RFQ</h1>
             </div>
             <div data-role="content">
-              <input type="submit" value="Submit" onclick="alert($('#volume').val());" />
+                <input type="submit" value="Submit" onclick="alert($('#volume').val());" />
             </div>
         </div>
         <!-- main menu -->
