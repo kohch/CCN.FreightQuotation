@@ -66,6 +66,9 @@
                 ); 
             
             $(document).ready(function() {
+            
+                alert("call webservice to get recipients contact list.");
+            
                 $("#btnSave").click(function() {                    
                     var str = "";
                     $("select option:selected").each(function() {
@@ -74,7 +77,7 @@
                     $("#selectedrecipients").append("<p>" + str + "</p>");
                 }),
                 $("#btnSubmit").click(function() {                    
-                    alert("Submit button is clicked;");
+                    alert("Call webservice to save the RFQ.");
                 });
             });
             
@@ -150,10 +153,10 @@
                     <a href="createRFQ.html">Create RFQ</a>
                 </li>
                 <li>
-                    <a href="index.html#search">Search RFQ</a>
+                    <a href="index.html#search" rel="external">Search RFQ</a>
                 </li>
                 <li>
-                    <a href="index.html#settings">Settings</a>
+                    <a href="index.html#settings" rel="external">Settings</a>
                 </li>
                 <li>
                     <a href="">Log Out</a>

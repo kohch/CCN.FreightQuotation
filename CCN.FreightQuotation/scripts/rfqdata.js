@@ -69,15 +69,15 @@ rfqSummaryData.prototype = function() {
 	},
     
 	getDataforRFQSummary = function(id, callback) {
-		fauxAjax(function () {
+		//fauxAjax(function () {
 			callback(requestSummary);
-		}, 'getting your data ...', this);
+		//}, 'loading data ...', this);
 	},
     
 	logOn = function (uid, pwd, callback) {
-		fauxAjax(function () {
+		//fauxAjax(function () {
 			callback('12345678', true);
-		}, 'logging you in ...', this);
+		//}, 'logging in ...', this);
 	},
     
 	fauxAjax = function fauxAjax(func, text, thisObj) {
