@@ -73,31 +73,17 @@
                 );
             
             $(document).ready(function() {            
-                                
                 $("#btnSearch").click(function() {                    
                     $.mobile.changePage("#home?origin=" + $("#origin").text(), {
-                                    transition: 'fade'
-                                });
+                        transition: 'fade'
+                    });
                 });
             });
             
         </script>
     </head>
     <body>
-        <!-- Summary page -->
-        <div id="home" data-role="page" data-mini="true">
-            <div id="header" data-role="header" data-tap-toggle="false">
-                <a id="menubtn" href="#menu"></a>
-                <h1>
-                    Hi <span id="ffname"></span>!
-                </h1>
-            </div>
-            <div data-role="content">
-                <div id="myRFQSummaryListView" data-inset="true" data-theme="d">
-                </div>
-            </div>
-        </div>
-
+    
         <!-- logon page -->
         <div id="logon" data-role="page">
             <div data-role="header" data-position="fixed"  data-tap-toggle="false">
@@ -113,87 +99,6 @@
                 </form>
             </div>
         </div>
-
-        <!-- search page -->
-        <div id="search" data-role="page">
-            <div data-role="header" data-tap-toggle="false">
-                <a id="menubtn" href="#menu"></a>
-                <h1>Search</h1>
-            </div>
-            <div data-role="content">
-                <input type="text" id="origin" value="Origin" />
-                <input type="text" id="destination" value="Destination" />
-                <input type="text" id="commodity" value="Commodity" />                
-                <div class="ui-grid-b">                    
-                    <div style="width:40%;" class="ui-block-a">
-                        <label for="carriercode">Flight Number:</label>
-                    </div>
-                    <div style="width:15%;" class="ui-block-b">
-                        <input type="text" id="carriercode" value="" />
-                    </div>
-                    <div style="width:40%;" class="ui-block-c">
-                        <input type="text" id="flightnumber" value="" />
-                    </div>
-                </div>
-                <select name="rfqStatus" multiple="multiple" data-native-menu="false">
-                    <option>Choose status</option>
-                    <option value="saved">Saved</option>
-                    <option value="pending">Pending</option>
-                    <option value="quoted">Quoted</option>
-                    <option value="noflight">No Flight</option>
-                    <option value="expired">Expired</option>
-                </select>
-                <div class="ui-grid-a">                    
-                    <div class="ui-block-a">
-                         <label for="depaturedate">Depature Date:</label>
-                    </div>
-                    <div class="ui-block-b">
-                        <input type="date" name="depaturedate" id="depaturedate">
-                    </div>
-                </div>
-                <div class="ui-grid-a">                    
-                    <div class="ui-block-a">
-                        <label for="createdate">Creation Date:</label>
-                    </div>
-                    <div class="ui-block-b">
-                        <input type="date" name="createdate" id="createdate">
-                    </div>
-                </div>
-                <input id="btnSearch" type="submit" value="Search" />
-            </div>
-        </div>
-
-        <!-- settings page -->
-        <div id="settings" data-role="page">
-            <div data-role="header" data-tap-toggle="false">
-                <a id="menubtn" href="#menu"></a>
-                <h1>Settings</h1>
-            </div>
-            <div data-role="content">
-                <p> This is the Settings page.</p>
-            </div>
-        </div>
-
-        <!-- main menu -->
-        <nav id="menu">
-            <ul>
-                <li class="Selected">
-                    <a href="index.html#home">Home</a>
-                </li>
-                <li>
-                    <a href="createRFQ.html" rel="external">Create RFQ</a>
-                </li>
-                <li>
-                    <a href="index.html#search">Search RFQ</a>
-                </li>
-                <li>
-                    <a href="index.html#settings">Settings</a>
-                </li>
-                <li>
-                    <a href="">Log Out</a>
-                </li>
-            </ul>
-        </nav>
     </body>
 </html>
 

@@ -23,6 +23,7 @@ quotationApp.prototype = function() {
         $('#tripDetail').on('pagebeforeshow',$.proxy(_initTripDetail,that));
         $('#boardingPass').on('pageshow',$.proxy(_initBoardingPass,that));
         $('#home').on('pagebeforecreate',$.proxy(_initHome,that));
+        $('#logon').on('pagebeforecreate',$.proxy(_initLogon,that));
         $('#checkIn').on('pageshow', $.proxy(_initCheckIn,that));
         
         
@@ -69,9 +70,10 @@ quotationApp.prototype = function() {
 	    $('#boardingpass-flight').text(flight);
     },
     
-    _initHome = function(){
+    _initLogon = function(){
+         //alert("init login");
         if (!_login) {
-	    	$.mobile.changePage("#logon", { transition: "flip" });
+	    	//$.mobile.changePage("#logon", { transition: "flip" });
 	    	$('#login').submit(function () {
 	    		$(this).hide();
 	    		_login = true;
@@ -81,6 +83,10 @@ quotationApp.prototype = function() {
 	    }
     },
     
+    _initHome = function(){
+        //alert("init home");
+       rfqData.getDataforRFQSummary(_ffNum,_handleDataForRFQSummary);
+    },
     _initCheckIn = function(){
         var currentseg = _flightForCheckin.segments[_flightForCheckin.currentSegment],
 	    seat = currentseg.seat,
@@ -94,7 +100,9 @@ quotationApp.prototype = function() {
     _handleLogOn = function (ff, success) {
 		if (success) {
 			_ffNum = ff;
-			rfqData.getDataforRFQSummary(_ffNum,_handleDataForRFQSummary);
+            //$.mobile.changePage('main.html', { transition: 'flip' });
+            window.location.href="main.html#home";
+			//alert("login success");
 		}
 	},
     
@@ -141,8 +149,9 @@ quotationApp.prototype = function() {
             + 'Created Date<br />' + rfq.createDT + '</td><td>LogeIn Date<br />' + rfq.LogeInDT + '<br /></td><td>&nbsp;Collection Date<br />' + rfq.collectionDT + '<br /></td><td>&nbsp;Expiry Date<br />' 
             + rfq.expireOn + '</td></tr></table></div></div><br />');
 		}
-		$.mobile.changePage('#home', { transition: 'flip' });
-
+		//$.mobile.changePage('main.html#home', { transition: 'flip' });
+       //window.location.href="main.html#home";
+        //alert(data.firstName);
 	};
     
     return {
