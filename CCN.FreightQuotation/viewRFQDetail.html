@@ -76,10 +76,9 @@
             
                 //show/hide submit RFQ page based on RFQ status.
                 var rfqStatus = "pending";
-                if (rfqStatus == "saved") {                    
+                if (rfqStatus != "saved") {                    
                     $("#rfq_navbar ul li").last().hide();
                 }           
-                
             });
         </script>
     </head>
@@ -111,10 +110,22 @@
                             <input type="text" id="weight" value="Weight" />
                             <input type="text" id="volume" value="1234" />
                             <input type="text" id="dimension" value="Dimension" />
-                            <label for="lodgeindate">Lodge In Date:</label>
-                            <input type="date" name="lodgeindate" id="lodgeindate">
-                            <label for="collectiondate">Collection Date:</label>
-                            <input type="date" name="collectiondate" id="collectiondate">
+                            <div class="ui-grid-a">
+                                <div class="ui-block-a">
+                                    <label for="lodgeindate">Lodge In Date:</label>
+                                </div>
+                                <div class="ui-block-b">
+                                    <input type="date" name="lodgeindate" id="lodgeindate">
+                                </div>
+                            </div>
+                            <div class="ui-grid-a">
+                                <div class="ui-block-a">
+                                    <label for="collectiondate">Collection Date:</label>
+                                </div>
+                                <div class="ui-block-b">
+                                    <input type="date" name="collectiondate" id="collectiondate">
+                                </div>
+                            </div>
                         </div>
                         <!-- Page 2-->
                         <div class="rfq_tab2 ui-screen-hidden">
@@ -129,16 +140,28 @@
                                 <option value="recipient4">recipient 4</option>
                                 <option value="recipient5">recipient 5</option>
                             </select>
-                            <label for="validfrom">Valid From:</label>
-                            <input type="date" name="validfrom" id="validfrom">
-                            <label for="exipreon">Expire On:</label>
-                            <input type="date" name="exipreon" id="exipreon">
+                            <div class="ui-grid-a">
+                                <div class="ui-block-a">
+                                    <label for="validfrom">Valid From:</label>
+                                </div>
+                                <div class="ui-block-b">
+                                    <input type="date" name="validfrom" id="validfrom">
+                                </div>
+                            </div>
+                            <div class="ui-grid-a">
+                                <div class="ui-block-a">
+                                    <label for="exipreon">Expire On:</label>
+                                </div>
+                                <div class="ui-block-b">
+                                    <input type="date" name="exipreon" id="exipreon">
+                                </div>
+                            </div>
                         </div>
                         <!-- Page 3-->
                         <div class="rfq_tab3 ui-screen-hidden">
                             <p>
                                 Your request for quotation is saved! <br><br>
-                            
+
                                 Click submit to send to the recipients now.
                             </p>
                             <div id="selectedrecipients">
@@ -196,4 +219,3 @@
         </nav>
     </body>
 </html>
-    
