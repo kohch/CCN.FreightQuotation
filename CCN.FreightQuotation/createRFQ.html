@@ -98,11 +98,28 @@
             
             function saveRFQData() { 
                 var request = new Object();
-                request.ContactName = "contact name";
-                    
+                request.RequestID = "RequestID";
+                request.ValidFrom = "ValidFrom";
+                request.ExpireOn = "ExpireOn";
+                request.Origin = "Origin";
+                request.Destination = "Destination";
+                request.Pieces = "Pieces";
+                request.Weight = "Weight";
+                request.Volume = "Volume";
+                request.Dimension = "Dimension";
+                request.GoodsDescription = "GoodsDescription";
+                request.Commodity = "Commodity";
+                request.ContactName = "ContactName";
+                request.LodgeInDT = "LodgeInDT";
+                request.CollectionDT = "CollectionDT";
+                request.Status = "Status";
+                request.SubmittedDT = "SubmittedDT";
+                request.CreatedDT = "CreatedDT";
+                request.RequesterID = "RequesterID";
                 //var datastr = {"CollectionDT":"1\/1\/2014 11:12:13 AM","Commodity":"RFQ","ContactName":null,"CreatedDT":"1\/1\/2014 11:12:13 AM","Destination":"SYN","Dimension":null,"ExpireOn":"1\/1\/2014 11:12:13 AM","GoodsDescription":"TESTING MY GOODS Description","LodgeInDT":"1\/1\/2014 11:12:13 AM","Origin":"KUL","Pieces":200,"Recipients":null,"RequestID":null,"RequesterID":"8dec1a71-f386-400c-8a65-87ed760ced03","Status":"Pending","SubmittedDT":null,"ValidFrom":null,"Volume":1234,"Weight":2030};
                 Type = "POST";
-                Url = "http://172.16.202.171/RFQService/RFQService.svc/SaveRFQ";
+                //Url = "http://172.16.202.171/RFQService/RFQService.svc/SaveRFQ";
+                Url = "http://localhost:20485/RFQService.svc/SaveRFQ";
                 ContentType = "application/json";
                 DataType = "json";
                 Method = "SaveRFQ";
