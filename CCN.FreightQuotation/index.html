@@ -26,6 +26,7 @@
         </script>
         <script src="scripts/rfqdata.js" type="text/javascript"></script>
         <script src="scripts/main.js" type="text/javascript"></script>
+        <script src="scripts/rfqservice.js" type="text/javascript"></script>
 
         <script type="text/javascript" src="scripts/jquery.mmenu.js"></script>
         <script type="text/javascript">
@@ -70,20 +71,12 @@
                         }
                         );
                 }
-                );
-            
-            $(document).ready(function() {            
-                $("#btnSearch").click(function() {                    
-                    $.mobile.changePage("#home?origin=" + $("#origin").text(), {
-                        transition: 'fade'
-                    });
-                });
-            });
-            
+                );      
+                 
         </script>
     </head>
     <body>
-    
+        
         <!-- logon page -->
         <div id="logon" data-role="page">
             <div data-role="header" data-position="fixed"  data-tap-toggle="false">

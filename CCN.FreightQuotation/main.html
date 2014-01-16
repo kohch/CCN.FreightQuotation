@@ -73,14 +73,14 @@
                 );
             
             $(document).ready(function() {            
-                                
                 $("#btnSearch").click(function() {                    
-                    $.mobile.changePage("#home?origin=" + $("#origin").text(), {
-                                    transition: 'fade'
-                                });
-                });                
+                    $.mobile.changePage("#home", {
+                        transition: 'fade'                       
+                    });
+                });                  
                 
-            });
+            });        
+            
             
         </script>
     </head>
@@ -98,7 +98,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- search page -->
         <div id="search" data-role="page">
             <div data-role="header" data-tap-toggle="false">
@@ -108,8 +108,8 @@
             <div data-role="content">
                 <input type="text" id="origin" value="Origin" />
                 <input type="text" id="destination" value="Destination" />
-                <input type="text" id="commodity" value="Commodity" />                
-                <div class="ui-grid-b">                    
+                <input type="text" id="commodity" value="Commodity" />
+                <div class="ui-grid-b">
                     <div style="width:40%;" class="ui-block-a">
                         <label for="carriercode">Flight Number:</label>
                     </div>
@@ -128,15 +128,15 @@
                     <option value="noflight">No Flight</option>
                     <option value="expired">Expired</option>
                 </select>
-                <div class="ui-grid-a">                    
+                <div class="ui-grid-a">
                     <div class="ui-block-a">
-                         <label for="depaturedate">Depature Date:</label>
+                        <label for="depaturedate">Depature Date:</label>
                     </div>
                     <div class="ui-block-b">
                         <input type="date" name="depaturedate" id="depaturedate">
                     </div>
                 </div>
-                <div class="ui-grid-a">                    
+                <div class="ui-grid-a">
                     <div class="ui-block-a">
                         <label for="createdate">Creation Date:</label>
                     </div>
@@ -187,3 +187,4 @@
     rfqApp.run();
 </script>
 
+    

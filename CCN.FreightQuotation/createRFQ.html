@@ -68,7 +68,7 @@
                 ); 
             
             $(document).ready(function() {
-                GetContactsData();
+                getContactsData();
                 $("#btnSave").click(function() {                    
                     var str = "";
                     $("select option:selected").each(function() {
@@ -76,58 +76,54 @@
                     });
                     $("#selectedrecipients").append("<p>" + str + "</p>");
                     
-                    alert("Call webservice to save the RFQ."); 
-                    SaveRFQData();
+                    //Call webservice to save the RFQ.
+                    saveRFQData();
                 }),
                 $("#btnSubmit").click(function() {                    
-                    alert("Call webservice to submit the RFQ."); 
+                    //Call webservice to save the RFQ.
+                    submitRFQData();
                 });
             });                 
             
             
-            function GetContactsData() {               
+            function getContactsData() {               
                 Type = "GET";
                 Url = "http://172.16.202.171/ContactService/ContactService.svc/GetContacts";
                 ContentType = "application/json; charset=utf-8";
                 DataType = "json";
                 Method = "GetContacts";
                 ProcessData = false;               
-                CallService();
+                callService();
             }     
             
-            function SaveRFQData() {
-                    //[{"AccountID":"1","Email":"Jenny@ccn.com.sg"},{"AccountID":"2","Email":"khaing@ccn.com.sg"},{"AccountID":"3","Email":"kohch@ccn.com.sg"},{"AccountID":"4","Email":"melissa@ccn.com.sg"},{"AccountID":"5","Email":"kk@ccn.com.sg"},{"AccountID":"6","Email":"alfon@ccn.com.sg"}]
+            function saveRFQData() { 
+                var request = new Object();
+                request.ContactName = "contact name";
+                    
+                //var datastr = {"CollectionDT":"1\/1\/2014 11:12:13 AM","Commodity":"RFQ","ContactName":null,"CreatedDT":"1\/1\/2014 11:12:13 AM","Destination":"SYN","Dimension":null,"ExpireOn":"1\/1\/2014 11:12:13 AM","GoodsDescription":"TESTING MY GOODS Description","LodgeInDT":"1\/1\/2014 11:12:13 AM","Origin":"KUL","Pieces":200,"Recipients":null,"RequestID":null,"RequesterID":"8dec1a71-f386-400c-8a65-87ed760ced03","Status":"Pending","SubmittedDT":null,"ValidFrom":null,"Volume":1234,"Weight":2030};
+                Type = "POST";
+                Url = "http://172.16.202.171/RFQService/RFQService.svc/SaveRFQ";
+                ContentType = "application/json";
+                DataType = "json";
+                Method = "SaveRFQ";
+                ProcessData = true;  
+                Data = JSON.stringify({ newRequest: request });
+                callService();               
+            }
+                    
+            function submitRFQData() {                    
                 var datastr = [{"newRequest":{"CollectionDT":"1\/1\/2014 11:12:13 AM","Commodity":"RFQ","ContactName":null,"CreatedDT":"1\/1\/2014 11:12:13 AM","Destination":"SYN","Dimension":null,"ExpireOn":"1\/1\/2014 11:12:13 AM","GoodsDescription":"TESTING MY GOODS Description","LodgeInDT":"1\/1\/2014 11:12:13 AM","Origin":"KUL","Pieces":200,"Recipients":null,"RequestID":null,"RequesterID":"8dec1a71-f386-400c-8a65-87ed760ced03","Status":"Pending","SubmittedDT":null,"ValidFrom":null,"Volume":1234,"Weight":2030}}];
-                //Type = "POST";
-                //Url = "http://172.16.202.171/RFQService/RFQService.svc/SaveRFQ";
-                //ContentType = "application/json; charset=utf-8";
-                //DataType = "json";
-                //Method = "SaveRFQ";
-                //ProcessData = true;  
-                //Data = JSON.stringify(datastr);
-                //CallService();
-                
-                $.ajax({
-                    cache: false,
-                    type: "POST",
-                    async: false,
-                    url: "http://172.16.202.171/RFQService/RFQService.svc/SaveRFQ",
-                    contentType : "application/json",
-                    dataType: "json",
-                    data:JSON.stringify(datastr),
-                    processdata:true,
-                    success: function () {
-                        alert("successfully consumed web service");
-                        //$("#app-status-ul").append("successfully consumed web service");
-                    },
-                    error: function (xhr) {
-                        alert(xhr.status);
-                        //$("#app-status-ul").append("error consuming web service");
-                    }
-                });   
+                Type = "POST";
+                Url = "http://172.16.202.171/RFQService/RFQService.svc/SubmitRFQ";
+                ContentType = "application/json";
+                DataType = "json";
+                Method = "SubmitRFQ";
+                ProcessData = true;  
+                Data = JSON.stringify(datastr);
+                callService();               
             }
             
-            function ServiceSucceeded(result) {
+            function serviceSucceeded(result) {
                 if (Method == "GetContacts") {
                     $.each(result, function(i, contact) {   
                         $("#recipients").append("<option value='" + contact.AccountID + "'>" + contact.Email + "</option>");                      
@@ -135,6 +131,9 @@
                 }
                 else if (Method == "SaveRFQ") {
                     alert("saved success.");
+                }
+                else if (Method == "SubmitRFQ") {
+                    alert("submit success.");
                 }
             }
         </script>
@@ -187,7 +186,7 @@
             <div data-role="content">
                 <p>
                     Your request for quotation is saved! <br><br>
-                
+
                     Click submit to send to the recipients now.
                 </p>
                 <div id="selectedrecipients"></div>
@@ -216,4 +215,3 @@
         </nav>
     </body>
 </html>
-    
