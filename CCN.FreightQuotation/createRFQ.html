@@ -100,20 +100,20 @@
                 var recipients = "";
                 $("select option:selected").each(function() {
                     recipients += $(this).text() + ",";
-                });
-            
+                });            
+                
                 var request = new Object();               
                 request.ValidFrom = $("#validfrom").val();
                 request.ExpireOn = $("#expireon").val();
-                request.Origin = $("#origin").text();
-                request.Destination = $("#destination").text();
-                request.Pieces = $("#pieces").text();
-                request.Weight = $("#weight").text();
-                request.Volume = $("#volume").text();
-                request.Dimension = $("#dimension").text();
-                request.GoodsDescription = $("#goodsdescription").text();
-                request.Commodity = $("#commodity").text();
-                request.ContactName = $("#contactname").text();
+                request.Origin = $("#origin").val();
+                request.Destination = $("#destination").val();
+                request.Pieces = $("#pieces").val();
+                request.Weight = $("#weight").val();
+                request.Volume = $("#volume").val();
+                request.Dimension = $("#dimension").val();
+                request.GoodsDescription = $("#goodsdescription").val();
+                request.Commodity = $("#commodity").val();
+                request.ContactName = $("#contactname").val();
                 request.LodgeInDT = $("#lodgeindate").val();
                 request.CollectionDT = $("#collecitondate").val();
                 request.Recipients = recipients;
@@ -121,8 +121,8 @@
                 request.RequesterID = "jaxon.daniels@gmail.com";
                 //var datastr = {"CollectionDT":"1\/1\/2014 11:12:13 AM","Commodity":"RFQ","ContactName":null,"CreatedDT":"1\/1\/2014 11:12:13 AM","Destination":"SYN","Dimension":null,"ExpireOn":"1\/1\/2014 11:12:13 AM","GoodsDescription":"TESTING MY GOODS Description","LodgeInDT":"1\/1\/2014 11:12:13 AM","Origin":"KUL","Pieces":200,"Recipients":null,"RequestID":null,"RequesterID":"8dec1a71-f386-400c-8a65-87ed760ced03","Status":"Pending","SubmittedDT":null,"ValidFrom":null,"Volume":1234,"Weight":2030};
                 Type = "POST";
-                Url = "http://172.16.202.171/RFQService/RFQService.svc/SaveRFQ";
-                //Url = "http://localhost:20485/RFQService.svc/SaveRFQ";
+                //Url = "http://172.16.202.171/RFQService/RFQService.svc/SaveRFQ";
+                Url = "http://localhost:20485/RFQService.svc/SaveRFQ";
                 ContentType = "application/json";
                 DataType = "json";
                 Method = "SaveRFQ";
@@ -194,7 +194,7 @@
                 <label for="validfrom">Valid From:</label>
                 <input type="date" name="validfrom" id="validfrom">
                 <label for="exipreon">Expire On:</label>
-                <input type="date" name="exipreon" id="exipreon">
+                <input type="date" name="exipreon" id="expireon">
                 <a id="btnSave" href="createRFQ.html#createpage3" data-role="button">Save</a>
             </div>
         </div>
