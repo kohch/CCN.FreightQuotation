@@ -96,7 +96,7 @@
             }     
             
             function SaveRFQData() {
-                var datastr = '{"CollectionDT":"1\/1\/2014 11:12:13 AM","Commodity":"RFQ","ContactName":null,"CreatedDT":"1\/1\/2014 11:12:13 AM","Destination":"SYN","Dimension":null,"ExpireOn":"1\/1\/2014 11:12:13 AM","GoodsDescription":"TESTING MY GOODS Description","LodgeInDT":"1\/1\/2014 11:12:13 AM","Origin":"KUL","Pieces":200,"Recipients":null,"RequestID":null,"RequesterID":"8dec1a71-f386-400c-8a65-87ed760ced03","Status":"Pending","SubmittedDT":null,"ValidFrom":null,"Volume":1234,"Weight":2030}';
+                var datastr = {"newRequest":{"CollectionDT":"1\/1\/2014 11:12:13 AM","Commodity":"RFQ","ContactName":null,"CreatedDT":"1\/1\/2014 11:12:13 AM","Destination":"SYN","Dimension":null,"ExpireOn":"1\/1\/2014 11:12:13 AM","GoodsDescription":"TESTING MY GOODS Description","LodgeInDT":"1\/1\/2014 11:12:13 AM","Origin":"KUL","Pieces":200,"Recipients":null,"RequestID":null,"RequesterID":"8dec1a71-f386-400c-8a65-87ed760ced03","Status":"Pending","SubmittedDT":null,"ValidFrom":null,"Volume":1234,"Weight":2030}};
                 //Type = "POST";
                 //Url = "http://172.16.202.171/RFQService/RFQService.svc/SaveRFQ";
                 //ContentType = "application/json; charset=utf-8";
@@ -112,6 +112,7 @@
                     async: false,
                     url: "http://172.16.202.171/RFQService/RFQService.svc/SaveRFQ",
                     dataType: "json",
+                    contentType: "application/json",
                     data:JSON.stringify(datastr),
                     processdata:true,
                     success: function () {
@@ -119,7 +120,7 @@
                         //$("#app-status-ul").append("successfully consumed web service");
                     },
                     error: function (xhr) {
-                        alert(xhr.status);
+                        alert("error : " + xhr.status);
                         //$("#app-status-ul").append("error consuming web service");
                     }
                 });   
