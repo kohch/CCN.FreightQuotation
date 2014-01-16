@@ -96,7 +96,8 @@
             }     
             
             function SaveRFQData() {
-                var datastr = {"newRequest":{"CollectionDT":"1\/1\/2014 11:12:13 AM","Commodity":"RFQ","ContactName":null,"CreatedDT":"1\/1\/2014 11:12:13 AM","Destination":"SYN","Dimension":null,"ExpireOn":"1\/1\/2014 11:12:13 AM","GoodsDescription":"TESTING MY GOODS Description","LodgeInDT":"1\/1\/2014 11:12:13 AM","Origin":"KUL","Pieces":200,"Recipients":null,"RequestID":null,"RequesterID":"8dec1a71-f386-400c-8a65-87ed760ced03","Status":"Pending","SubmittedDT":null,"ValidFrom":null,"Volume":1234,"Weight":2030}};
+                    //[{"AccountID":"1","Email":"Jenny@ccn.com.sg"},{"AccountID":"2","Email":"khaing@ccn.com.sg"},{"AccountID":"3","Email":"kohch@ccn.com.sg"},{"AccountID":"4","Email":"melissa@ccn.com.sg"},{"AccountID":"5","Email":"kk@ccn.com.sg"},{"AccountID":"6","Email":"alfon@ccn.com.sg"}]
+                var datastr = [{"newRequest":{"CollectionDT":"1\/1\/2014 11:12:13 AM","Commodity":"RFQ","ContactName":null,"CreatedDT":"1\/1\/2014 11:12:13 AM","Destination":"SYN","Dimension":null,"ExpireOn":"1\/1\/2014 11:12:13 AM","GoodsDescription":"TESTING MY GOODS Description","LodgeInDT":"1\/1\/2014 11:12:13 AM","Origin":"KUL","Pieces":200,"Recipients":null,"RequestID":null,"RequesterID":"8dec1a71-f386-400c-8a65-87ed760ced03","Status":"Pending","SubmittedDT":null,"ValidFrom":null,"Volume":1234,"Weight":2030}}];
                 //Type = "POST";
                 //Url = "http://172.16.202.171/RFQService/RFQService.svc/SaveRFQ";
                 //ContentType = "application/json; charset=utf-8";
@@ -111,8 +112,8 @@
                     type: "POST",
                     async: false,
                     url: "http://172.16.202.171/RFQService/RFQService.svc/SaveRFQ",
+                    contentType : "application/json",
                     dataType: "json",
-                    contentType: "application/json",
                     data:JSON.stringify(datastr),
                     processdata:true,
                     success: function () {
@@ -120,7 +121,7 @@
                         //$("#app-status-ul").append("successfully consumed web service");
                     },
                     error: function (xhr) {
-                        alert("error : " + xhr.status);
+                        alert(xhr.status);
                         //$("#app-status-ul").append("error consuming web service");
                     }
                 });   
