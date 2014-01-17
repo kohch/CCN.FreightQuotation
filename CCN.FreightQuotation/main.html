@@ -80,6 +80,11 @@
                 });                  
             });        
             
+            $('#viewRFQDetail.html').on('pagebeforeshow',function(){
+
+    alert($(this).data("url"))
+
+});
             
         </script>
     </head>
@@ -95,6 +100,7 @@
                 </h1>
             </div>
             <div data-role="content">
+                <img src="images/QuotationRequested.png">
                 <div id="myRFQSummaryListView" data-inset="true" data-theme="d">
                 </div>
             </div>
@@ -109,6 +115,7 @@
                 <h1>Search</h1>
             </div>
             <div data-role="content">
+                <img src="images/Search_RFQ.png">
                 <input type="text" id="origin" placeholder="Origin" />
                 <input type="text" id="destination" placeholder="Destination" />
                 <input type="text" id="commodity" placeholder="Commodity" />
@@ -171,19 +178,19 @@
         <nav id="menu">
             <ul data-role="listview">
                 <li class="Selected">
-                    <a href="main.html#home">Home</a>
+                    <a href="main.html#home"><img src="images/Home.png" height="16" width="16">  Home</a>
                 </li>
                 <li>
-                    <a href="createRFQ.html" rel="external">Create RFQ</a>
+                    <a href="createRFQ.html" rel="external"><img src="images/Create.png" height="16" width="16">  Create RFQ</a>
                 </li>
                 <li>
-                    <a href="main.html#search">Search RFQ</a>
+                    <a href="main.html#search"><img src="images/Search.png" height="16" width="16">  Search RFQ</a>
                 </li>
                 <li>
-                    <a href="main.html#settings">Settings</a>
+                    <a href="main.html#settings"><img src="images/Setting.png" height="16" width="16">  Settings</a>
                 </li>
                 <li>
-                    <a href="">Log Out</a>
+                    <a href=""><img src="images/Logout.png" height="16" width="16">  Log Out</a>
                 </li>
             </ul>
         </nav>

@@ -74,8 +74,9 @@
     <body>
         <div id="quotationDetail1" data-role="page">
             <div data-role="header" data-tap-toggle="false">
-                <div><a id="menubtn" href="#menu"></a></div>
-                <h1>New RFQ</h1>
+                <span><a id="menubtn" href="#menu"></a></span>
+                <h1>Quotation Detail</h1>
+                <span ><a href="viewRFQDetail.html#viewDetail" rel="external"  data-role="button">Back</a></span>
             </div>
             <div data-role="content">
                 <input type="text" id="origin" placeholder="Origin" />
@@ -94,7 +95,7 @@
         <div id="quotationDetail2" data-role="page">
             <div data-role="header" data-tap-toggle="false">
                 <a id="menubtn" href="#menu"></a>
-                <h1>New RFQ</h1>
+                <h1>Quotation Detail</h1>
                 <a href="viewQuotationDetail.html#quotationDetail1" data-role="button">Back</a>
             </div>
             <div data-role="content">
@@ -103,7 +104,14 @@
                 <input type="date" name="validfrom" id="validfrom">
                 <label for="exipreon">Expire On:</label>
                 <input type="date" name="exipreon" id="expireon">
-                <a id="btnClose" href="viewRFQDetail.html#viewDetail" rel="external" data-role="button">Close</a>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <a id="btnAccept" href="viewRFQDetail.html#viewDetail" rel="external" data-role="button">Accept</a>
+                    </div>
+                    <div class="ui-block-b">
+                        <a id="btnReject" href="viewRFQDetail.html#viewDetail" rel="external" data-role="button">Reject</a>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- main menu -->
