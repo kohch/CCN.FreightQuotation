@@ -97,11 +97,11 @@
             }     
             
             function saveRFQData() { 
-                var recipients = "";
+                var recv = "";
                 $("select option:selected").each(function() {
-                    recipients += $(this).text() + ",";
+                    recv += $(this).text() + ",";
                 });            
-                
+                  //alert($("#pieces").val());
                 var request = new Object();               
                 request.ValidFrom = $("#validfrom").val();
                 request.ExpireOn = $("#expireon").val();
@@ -116,7 +116,7 @@
                 request.ContactName = $("#contactname").val();
                 request.LodgeInDT = $("#lodgeindate").val();
                 request.CollectionDT = $("#collecitondate").val();
-                request.Recipients = recipients;
+                request.Recipients = recv;
                 request.Status = "Save";               
                 request.RequesterID = "jaxon.daniels@gmail.com";
                 //var datastr = {"CollectionDT":"1\/1\/2014 11:12:13 AM","Commodity":"RFQ","ContactName":null,"CreatedDT":"1\/1\/2014 11:12:13 AM","Destination":"SYN","Dimension":null,"ExpireOn":"1\/1\/2014 11:12:13 AM","GoodsDescription":"TESTING MY GOODS Description","LodgeInDT":"1\/1\/2014 11:12:13 AM","Origin":"KUL","Pieces":200,"Recipients":null,"RequestID":null,"RequesterID":"8dec1a71-f386-400c-8a65-87ed760ced03","Status":"Pending","SubmittedDT":null,"ValidFrom":null,"Volume":1234,"Weight":2030};
@@ -167,7 +167,7 @@
             <div data-role="content">
                 <input type="text" id="origin" value="Origin" />
                 <input type="text" id="destination" value="Destination" />
-                <input type="text" id="peices" value="Pieces" />
+                <input type="text" id="pieces" value="Pieces" />
                 <input type="text" id="weight" value="Weight" />
                 <input type="text" id="volume" value="1234" />
                 <input type="text" id="dimension" value="Dimension" />
