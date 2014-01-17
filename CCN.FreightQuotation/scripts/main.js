@@ -149,7 +149,7 @@ quotationApp.prototype = function() {
                 headerstyleclass = 'ui-bar ui-bar-a';
             else if (rfq.status == "No Flight")
                 headerstyleclass = 'ui-bar ui-bar-f';
-            $myRFQSummary.append('<div class="ui-corner-all custom-corners"><div class="' + headerstyleclass + '"><a href="viewRFQDetail.html?id="' + idx + ' rel="external"><h3>Request For Quotation ' + idx + '</h3></a></div><div class="ui-body ui-body-c"><table><tr><th>'
+            $myRFQSummary.append('<div class="ui-corner-all custom-corners"><div><a href="viewRFQDetail.html?id="' + idx + ' rel="external"><div class="' + headerstyleclass + '"><h3>Request For Quotation ' + idx + '</h3></div></a></div><div class="ui-body ui-body-c"><table><tr><th>'
                                  + rfq.origin + ' - ' + rfq.destination + '</th><th>&nbsp;<th>&nbsp;</th><th>' + rfq.status + '</th></tr><tr><td colspan="4">&nbsp;' + rfq.goodsDescription 
                                  + '</td></tr><tr><td>&nbsp;' + rfq.commodity + '</td><td>' + rfq.pieces + ' pcs</td><td>&nbsp;' + rfq.weight + ' kg</td><td>&nbsp;' + rfq.volume + ' cubic m</td></tr><tr><td>&nbsp;' 
                                  + 'Created Date<br />' + rfq.createDT + '</td><td>LogeIn Date<br />' + rfq.LogeInDT + '<br /></td><td>&nbsp;Collection Date<br />' + rfq.collectionDT + '<br /></td><td>&nbsp;Expiry Date<br />' 
@@ -190,7 +190,7 @@ function getQuotationSummary() {
                 headerstyleclass = 'ui-bar ui-bar-a';
             else if (rfq.status == "No Flight")
                 headerstyleclass = 'ui-bar ui-bar-f';
-        $myQuotationSummary.append('<div class="ui-corner-all custom-corners"><div class="' + headerstyleclass + '"><a href="viewQuotationDetail.html" rel="external"><h3>Quotation ' + idx + '</h3></a></div><div class="ui-body ui-body-e"><table><tr><th>'
+        $myQuotationSummary.append('<div class="ui-corner-all custom-corners"><a href="viewQuotationDetail.html" rel="external"><div class="' + headerstyleclass + '"><h3>Quotation ' + idx + '</h3></div></a><div class="ui-body ui-body-e"><table><tr><th>'
                                    + rfq.origin + ' - ' + rfq.destination + '</th><th>&nbsp;<th>&nbsp;</th><th>' + rfq.status + '</th></tr><tr><td colspan="4">&nbsp;' + rfq.remarks 
                                    + '</td></tr><tr><td>&nbsp;' + rfq.ratePerKg + '</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;' + rfq.totalRate + '</td></tr><tr><td>&nbsp;' 
                                    + 'Created Date<br />' + rfq.createDT + '</td><td>Depart Date<br />' + rfq.departureDT + '<br /></td><td>&nbsp;Arrival Date<br />' + rfq.arrivalDT + '<br /></td><td>&nbsp;Expiry Date<br />' 
