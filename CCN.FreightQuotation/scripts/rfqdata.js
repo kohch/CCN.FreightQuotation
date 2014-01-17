@@ -68,10 +68,10 @@ rfqSummaryData.prototype = function() {
 		]
 	},
     
-	getDataforRFQSummary = function(id, callback) {
-		fauxAjax(function () {
+	getDataforRFQSummary = function(id, callback) {        
+		//fauxAjax(function () {
 			callback(requestSummary);
-		}, 'loading data ...', this);
+		//}, 'loading data ...', this);
 	},
     
 	logOn = function (uid, pwd, callback) {
@@ -80,7 +80,7 @@ rfqSummaryData.prototype = function() {
 		}, 'logging in ...', this);
 	},
     
-	fauxAjax = function fauxAjax(func, text, thisObj) {
+	fauxAjax = function fauxAjax(func, text, thisObj) {       
 		$.mobile.loading('show', { theme: 'a', textVisible: true, text:text });
 		window.setTimeout(function () {
 			$.mobile.loading('hide');

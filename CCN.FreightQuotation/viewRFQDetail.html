@@ -72,20 +72,28 @@
                 });
                 
                 //call web service here
-                alert("Call webservice here to get rfq details.");
+                //alert("Call webservice here to get rfq details.");
             
                 //show/hide submit RFQ page based on RFQ status.
                 var rfqStatus = "pending";
                 if (rfqStatus != "saved") {                    
                     $("#rfq_navbar ul li").last().hide();
-                }           
+                }        
+                
+                var objOpt = $('[name=recipients] option').filter(function() { 
+                    return ($(this).text() == 'recipient 3');
+                });//.prop('selected', true);
+                alert(objOpt.text());              
+               
             });
         </script>
     </head>
     <body>
         <div id="viewDetail" data-role="page">
             <div data-role="header" data-tap-toggle="false">
-                <a id="menubtn" href="#menu"></a>
+                <div>
+                    <a id="menubtn" href="#menu"></a>
+                </div>
                 <h1>View RFQ</h1>
             </div>
             <div data-role="content">
@@ -111,7 +119,7 @@
                             <input type="text" id="volume" value="1234" />
                             <input type="text" id="dimension" value="Dimension" />
                             <div class="ui-grid-a">
-                                <div class="ui-block-a">
+                                <div class="ui-block-a" style="margin-top:5%">
                                     <label for="lodgeindate">Lodge In Date:</label>
                                 </div>
                                 <div class="ui-block-b">
@@ -119,7 +127,7 @@
                                 </div>
                             </div>
                             <div class="ui-grid-a">
-                                <div class="ui-block-a">
+                                <div class="ui-block-a" style="margin-top:5%">
                                     <label for="collectiondate">Collection Date:</label>
                                 </div>
                                 <div class="ui-block-b">
@@ -132,7 +140,7 @@
                             <input type="text" id="contactname" value="Contact Name" />
                             <textarea name="goodsdescription" id="goodsdescription" value ="Goods Description"></textarea>
                             <input type="text" id="commodity" value="Commodity" />
-                            <select name="recipients" multiple="multiple" data-native-menu="false">
+                            <select name="recipients" id="recipients" multiple="multiple" data-native-menu="false">
                                 <option>Choose recipients</option>
                                 <option value="recipient1">recipient 1</option>
                                 <option value="recipient2">recipient 2</option>
@@ -141,7 +149,7 @@
                                 <option value="recipient5">recipient 5</option>
                             </select>
                             <div class="ui-grid-a">
-                                <div class="ui-block-a">
+                                <div class="ui-block-a" style="margin-top:5%">
                                     <label for="validfrom">Valid From:</label>
                                 </div>
                                 <div class="ui-block-b">
@@ -149,7 +157,7 @@
                                 </div>
                             </div>
                             <div class="ui-grid-a">
-                                <div class="ui-block-a">
+                                <div class="ui-block-a" style="margin-top:5%">
                                     <label for="exipreon">Expire On:</label>
                                 </div>
                                 <div class="ui-block-b">
@@ -190,7 +198,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="main_tab2 ui-screen-hidden">
+                    <div id="quotation" class="main_tab2 ui-screen-hidden">
                         <!-- Quotation Summary Page-->
                         This is Quotation Summary Page.
                     </div>
