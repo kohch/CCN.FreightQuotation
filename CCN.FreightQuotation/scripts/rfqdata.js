@@ -58,7 +58,7 @@ var rfqSummaryData = function(timeToLoad) {
 rfqSummaryData.prototype = function() {
   
     var requestSummary = {
-        firstName: 'kohch', lastName: 'Daniels', requesterID: '12345678',newRFQ: 2,
+        firstName: 'Steve', lastName: 'Daniels', requesterID: '12345678',newRFQ: 2,
         requestQuotation: [
 			{ requestID: 'F56F1962-3C60-47D6-BE22-74BC4D3B8952', origin: 'SIN', destination: 'KUL',pieces: '140', weight: '1100', volume: '2110', status: 'Saved', createDT: '2014-01-01 11:00', expireOn: '2014-01-22 11:00', LogeInDT: '2014-01-20 11:00', collectionDT: '2014-01-21 11:00', commodity: '', goodsDescription: 'My Book1' },
 			{ requestID: 'BA720F62-4F43-4BA3-B5FE-AD25EDC1BAC1', origin: 'KUL', destination: 'HKG',pieces: '240', weight: '2100', volume: '3120', status: 'Pending', createDT: '2014-01-01 12:00', expireOn: '2014-01-23 11:00', LogeInDT: '2014-01-21 12:00', collectionDT: '2014-01-21 11:00', commodity: '', goodsDescription: 'My Text2' },

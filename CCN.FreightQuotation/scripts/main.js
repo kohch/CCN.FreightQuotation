@@ -143,7 +143,7 @@ quotationApp.prototype = function() {
 		//$('#numberOfFlights').text(data.flights.length);
 		for (var i in data.requestQuotation) {
             var rfq = data.requestQuotation[i];
-           $myRFQSummary.append('<div class="ui-corner-all custom-corners"><div class="ui-bar ui-bar-e"><a href="viewRFQDetail.html" rel="external"><h3>RFQ ' + i + 1 + '</h3></a></div><div class="ui-body ui-body-e"><table><tr><th>'
+           $myRFQSummary.append('<div class="ui-corner-all custom-corners"><div class="ui-bar ui-bar-c"><a href="viewRFQDetail.html" rel="external"><h3>RFQ ' + i + 1 + '</h3></a></div><div class="ui-body ui-body-c"><table><tr><th>'
             + rfq.origin + ' - ' + rfq.destination + '</th><th>&nbsp;<th>&nbsp;</th><th>' + rfq.status + '</th></tr><tr><td colspan="4">&nbsp;' + rfq.goodsDescription 
             + '</td></tr><tr><td>&nbsp;' + rfq.commodity + '</td><td>' + rfq.pieces + ' pcs</td><td>&nbsp;' + rfq.weight + ' kg</td><td>&nbsp;' + rfq.volume + ' cubic m</td></tr><tr><td>&nbsp;' 
             + 'Created Date<br />' + rfq.createDT + '</td><td>LogeIn Date<br />' + rfq.LogeInDT + '<br /></td><td>&nbsp;Collection Date<br />' + rfq.collectionDT + '<br /></td><td>&nbsp;Expiry Date<br />' 

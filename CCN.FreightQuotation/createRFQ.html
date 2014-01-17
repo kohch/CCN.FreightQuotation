@@ -68,14 +68,15 @@
                 ); 
             
             $(document).ready(function() {
-                getContactsData();
+                getContactsData();    
+                
                 $("#btnSave").click(function() {                    
                     var str = "";
                     $("select option:selected").each(function() {
                         str += $(this).text() + "<br>";
                     });
                     $("#selectedrecipients").append("<p>" + str + "</p>");
-                    
+            
                     //Call webservice to save the RFQ.
                     saveRFQData();
                 }),
@@ -101,8 +102,7 @@
                 $("select option:selected").each(function() {
                     recipients += $(this).text() + ",";
                 });            
-                
-                
+            
                 var request = new Object();               
                 request.ValidFrom = $("#validfrom").val();
                 request.ExpireOn = $("#expireon").val();
@@ -120,10 +120,10 @@
                 request.Recipients = recipients;
                 request.Status = "Save";               
                 request.RequesterID = "jaxon.daniels@gmail.com";
-                //var datastr = {"CollectionDT":"1\/1\/2014 11:12:13 AM","Commodity":"RFQ","ContactName":null,"CreatedDT":"1\/1\/2014 11:12:13 AM","Destination":"SYN","Dimension":null,"ExpireOn":"1\/1\/2014 11:12:13 AM","GoodsDescription":"TESTING MY GOODS Description","LodgeInDT":"1\/1\/2014 11:12:13 AM","Origin":"KUL","Pieces":200,"Recipients":null,"RequestID":null,"RequesterID":"8dec1a71-f386-400c-8a65-87ed760ced03","Status":"Pending","SubmittedDT":null,"ValidFrom":null,"Volume":1234,"Weight":2030};
+            
                 Type = "POST";
-                //Url = "http://172.16.202.171/RFQService/RFQService.svc/SaveRFQ";
-                Url = "http://localhost:20485/RFQService.svc/SaveRFQ";
+                Url = "http://172.16.202.171/RFQService/RFQService.svc/SaveRFQ";
+            
                 ContentType = "application/json";
                 DataType = "json";
                 Method = "SaveRFQ";
@@ -133,15 +133,36 @@
             }
             
             function submitRFQData() {                    
-                var datastr = [{"newRequest":{"CollectionDT":"1\/1\/2014 11:12:13 AM","Commodity":"RFQ","ContactName":null,"CreatedDT":"1\/1\/2014 11:12:13 AM","Destination":"SYN","Dimension":null,"ExpireOn":"1\/1\/2014 11:12:13 AM","GoodsDescription":"TESTING MY GOODS Description","LodgeInDT":"1\/1\/2014 11:12:13 AM","Origin":"KUL","Pieces":200,"Recipients":null,"RequestID":null,"RequesterID":"8dec1a71-f386-400c-8a65-87ed760ced03","Status":"Pending","SubmittedDT":null,"ValidFrom":null,"Volume":1234,"Weight":2030}}];
+                var recipients = "";
+                $("select option:selected").each(function() {
+                    recipients += $(this).text() + ",";
+                });            
+            
+                var request = new Object();               
+                request.ValidFrom = $("#validfrom").val();
+                request.ExpireOn = $("#expireon").val();
+                request.Origin = $("#origin").val();
+                request.Destination = $("#destination").val();
+                request.Pieces = $("#pieces").val();
+                request.Weight = $("#weight").val();
+                request.Volume = $("#volume").val();
+                request.Dimension = $("#dimension").val();
+                request.GoodsDescription = $("#goodsdescription").val();
+                request.Commodity = $("#commodity").val();
+                request.ContactName = $("#contactname").val();
+                request.LodgeInDT = $("#lodgeindate").val();
+                request.CollectionDT = $("#collectiondate").val();
+                request.Recipients = recipients;
+                request.Status = "Save";               
+                request.RequesterID = "jaxon.daniels@gmail.com";                
                 Type = "POST";
-                Url = "http://172.16.202.171/RFQService/RFQService.svc/SubmitRFQ";
+                Url = "http://172.16.202.171/RFQService/RFQService.svc/SubmitRFQ";                
                 ContentType = "application/json";
                 DataType = "json";
                 Method = "SubmitRFQ";
                 ProcessData = true;  
-                Data = JSON.stringify(datastr);
-                callService();               
+                Data = JSON.stringify({ newRequest: request });
+                callService();            
             }
             
             function serviceSucceeded(result) {
@@ -151,10 +172,10 @@
                     });
                 }
                 else if (Method == "SaveRFQ") {
-                    alert(result);
+                    //window.location.href="main.html#home";
                 }
                 else if (Method == "SubmitRFQ") {
-                    alert("submit success.");
+                    alert("RFQ is submitted successfully.");
                 }
             }
         </script>
@@ -166,12 +187,12 @@
                 <h1>New RFQ</h1>
             </div>
             <div data-role="content">
-                <input type="text" id="origin" value="Origin" />
-                <input type="text" id="destination" value="Destination" />
-                <input type="text" id="peices" value="Pieces" />
-                <input type="text" id="weight" value="Weight" />
-                <input type="text" id="volume" value="1234" />
-                <input type="text" id="dimension" value="Dimension" />
+                <input type="text" id="origin" placeholder="Origin" />
+                <input type="text" id="destination" placeholder="Destination" />
+                <input type="text" id="peices" placeholder="Pieces" />
+                <input type="text" id="weight" placeholder="Weight" />
+                <input type="text" id="volume" placeholder="Volume" />
+                <input type="text" id="dimension" placeholder="Dimension (w x h x )" />
                 <label for="lodgeindate">Lodge In Date:</label>
                 <input type="date" name="lodgeindate" id="lodgeindate">
                 <label for="collectiondate">Collection Date:</label>
@@ -186,9 +207,9 @@
                 <a href="createRFQ.html#createpage1" data-role="button">Back</a>
             </div>
             <div data-role="content">
-                <input type="text" id="contactname" value="Contact Name" />
-                <textarea name="goodsdescription" id="goodsdescription" value ="Goods Description"></textarea>
-                <input type="text" id="commodity" value="Commodity" />
+                <input type="text" id="contactname" placeholder="Contact Name" />
+                <textarea name="goodsdescription" id="goodsdescription" placeholder ="Goods Description"></textarea>
+                <input type="text" id="commodity" placeholder="Commodity" />
                 <select id="recipients" name="recipients" multiple="multiple" data-native-menu="false">
                     <option>Choose recipients</option>
                 </select>
@@ -210,8 +231,18 @@
                     
                     Click submit to send to the recipients now.
                 </p>
-                <div id="selectedrecipients"></div>
-                <a id="btnSubmit" href="main.html#home" rel="external" data-role="button">Submit</a>
+                <div class="ui-corner-all custom-corners">
+                    <div id="selectedrecipients" class="ui-bar ui-bar-c"></div>
+                </div>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <a id="btnSubmit" href="main.html#home" rel="external" data-role="button">Submit</a>
+                    </div>
+                    <div class="ui-block-b">
+                        <a id="btnCancel" href="main.html#home" rel="external" data-role="button">Cancel</a>
+                    </div>
+                </div>
+                
             </div>
         </div>
         <!-- main menu -->
