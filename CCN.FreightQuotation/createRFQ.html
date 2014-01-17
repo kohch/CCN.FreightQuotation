@@ -102,6 +102,7 @@
                     recipients += $(this).text() + ",";
                 });            
                 
+                
                 var request = new Object();               
                 request.ValidFrom = $("#validfrom").val();
                 request.ExpireOn = $("#expireon").val();
@@ -115,7 +116,7 @@
                 request.Commodity = $("#commodity").val();
                 request.ContactName = $("#contactname").val();
                 request.LodgeInDT = $("#lodgeindate").val();
-                request.CollectionDT = $("#collecitondate").val();
+                request.CollectionDT = $("#collectiondate").val();
                 request.Recipients = recipients;
                 request.Status = "Save";               
                 request.RequesterID = "jaxon.daniels@gmail.com";
@@ -150,7 +151,7 @@
                     });
                 }
                 else if (Method == "SaveRFQ") {
-                    alert("saved success.");
+                    alert(result);
                 }
                 else if (Method == "SubmitRFQ") {
                     alert("submit success.");
