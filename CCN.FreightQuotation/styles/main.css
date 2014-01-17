@@ -8,6 +8,8 @@
     left: 0px;
     border:none;
 }
+
+
 #menu{
     text-shadow:none;
 } 
@@ -15,6 +17,11 @@
 #create > .ui-input-text{
     width:250px;
 }
+
+ui-block-a{
+    text-align:center;
+}
+
 .ui-page {
     background:#d3dfe5;
 }

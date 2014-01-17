@@ -72,7 +72,7 @@
                 }
                 );
             
-            $(document).ready(function() {            
+            $(document).ready(function() {      
                 $("#btnSearch").click(function() {                    
                     $.mobile.changePage("#home", {
                         transition: 'fade'                       
@@ -87,7 +87,9 @@
         <!-- Summary page -->
         <div id="home" data-role="page" data-mini="true">
             <div id="header" data-role="header" data-tap-toggle="false">
-                <a id="menubtn" href="#menu"></a>
+                <div>
+                    <a id="menubtn" href="#menu"></a>
+                </div>
                 <h1>
                     Hi <span id="ffname"></span>!
                 </h1>
@@ -101,21 +103,26 @@
         <!-- search page -->
         <div id="search" data-role="page">
             <div data-role="header" data-tap-toggle="false">
-                <a id="menubtn" href="#menu"></a>
+                <div>
+                    <a id="menubtn" href="#menu"></a>
+                </div>
                 <h1>Search</h1>
             </div>
             <div data-role="content">
                 <input type="text" id="origin" placeholder="Origin" />
                 <input type="text" id="destination" placeholder="Destination" />
                 <input type="text" id="commodity" placeholder="Commodity" />
-                <div class="ui-grid-b">
-                    <div style="width:40%;" class="ui-block-a">
+                <div class="ui-grid-c">
+                    <div style="width:40%;margin-top:5%;" class="ui-block-a">
                         <label for="carriercode">Flight Number:</label>
                     </div>
                     <div style="width:15%;" class="ui-block-b">
                         <input type="text" id="carriercode" placeholder="" />
                     </div>
-                    <div style="width:40%;" class="ui-block-c">
+                    <div style="width:2%;" class="ui-block-c">
+
+                    </div>
+                    <div style="width:38%;" class="ui-block-d">
                         <input type="text" id="flightnumber" placeholder="" />
                     </div>
                 </div>
@@ -128,39 +135,41 @@
                     <option value="expired">Expired</option>
                 </select>
                 <div class="ui-grid-a">
-                    <div class="ui-block-a">
-                        <label for="depaturedate">Depature Date:</label>
+                    <div class="ui-block-a" style="margin-top:5%">
+                        <label for="depaturedate" >Depature Date:</label>
                     </div>
                     <div class="ui-block-b">
                         <input type="date" name="depaturedate" id="depaturedate">
                     </div>
                 </div>
                 <div class="ui-grid-a">
-                    <div class="ui-block-a">
-                        <label for="createdate">Creation Date:</label>
+                    <div class="ui-block-a" style="margin-top:5%">
+                        <label for="createdate" >Creation Date:</label>
                     </div>
                     <div class="ui-block-b">
                         <input type="date" name="createdate" id="createdate">
                     </div>
                 </div>
-                <input id="btnSearch" type="submit" value="Search" />
+                <input id="btnSearch" data-icon="search" type="submit" value="Search" />
             </div>
         </div>
         
         <!-- settings page -->
         <div id="settings" data-role="page">
             <div data-role="header" data-tap-toggle="false">
-                <a id="menubtn" href="#menu"></a>
+                <div>
+                    <a id="menubtn" href="#menu"></a>
+                </div>
                 <h1>Settings</h1>
             </div>
             <div data-role="content">
-                <p> This is the Settings page.</p>
+                
             </div>
         </div>
         
         <!-- main menu -->
         <nav id="menu">
-            <ul>
+            <ul data-role="listview">
                 <li class="Selected">
                     <a href="main.html#home">Home</a>
                 </li>
@@ -186,4 +195,3 @@
     rfqApp.run();
 </script>
 
-    
