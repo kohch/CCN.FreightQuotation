@@ -73,7 +73,8 @@
                 
                 //call web service here
                 alert("Call webservice here to get rfq details.");
-            
+                getQuotationSummary();
+                
                 //show/hide submit RFQ page based on RFQ status.
                 var rfqStatus = "pending";
                 if (rfqStatus != "saved") {                    
@@ -192,7 +193,10 @@
                     </div>
                     <div class="main_tab2 ui-screen-hidden">
                         <!-- Quotation Summary Page-->
-                        This is Quotation Summary Page.
+                        <div data-role="content">
+                            <div id="myQuotationSummaryListView" data-inset="true" data-theme="d">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
