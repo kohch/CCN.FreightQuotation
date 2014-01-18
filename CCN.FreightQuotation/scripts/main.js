@@ -151,8 +151,8 @@ quotationApp.prototype = function() {
                 headerstyleclass = 'ui-bar ui-bar-f';
             $myRFQSummary.append('<div class="ui-corner-all custom-corners"><div><a href="viewRFQDetail.html?rfq=' + rfq.requestID + '" rel="external"><div class="' + headerstyleclass + '"><h3>Request For Quotation ' + idx + '</h3></div></a></div><div class="ui-body ui-body-c"><table><tr><th>'
                                  + rfq.origin + ' - ' + rfq.destination + '</th><th>&nbsp;<th>&nbsp;</th><th>' + rfq.status + '</th></tr><tr><td colspan="4">&nbsp;' + rfq.goodsDescription 
-                                 + '</td></tr><tr><td>&nbsp;' + rfq.commodity + '</td><td>' + rfq.pieces + ' <b>pcs</b></td><td>&nbsp;' + rfq.weight + ' <b>kg</b></td><td>&nbsp;' + rfq.volume + ' <b>m³</b></td></tr><tr><td>&nbsp;' 
-                                 + 'Created Date<br />' + rfq.createDT + '</td><td>LogeIn Date<br />' + rfq.LogeInDT + '<br /></td><td>&nbsp;Collection Date<br />' + rfq.collectionDT + '<br /></td><td>&nbsp;Expiry Date<br />' 
+                                 + '</td></tr><tr><td>&nbsp;' + rfq.commodity + '</td><td>' + rfq.pieces + ' <b>pcs</b></td><td>&nbsp;' + rfq.weight + ' <b>kg</b></td><td>&nbsp;' + rfq.volume + ' <b>m³</b></td></tr><tr><td>' 
+                                 + 'Created Date<br />' + rfq.createDT + '</td><td>LogeIn Date<br />' + rfq.LogeInDT + '<br /></td><td>Collection Date<br />' + rfq.collectionDT + '<br /></td><td>Expiry Date<br />' 
                                  + rfq.expireOn + '</td></tr></table></div></div><br />');
 
         }
@@ -167,8 +167,9 @@ function getQuotationSummary() {
     var quotationSummary = {
         firstName: 'kohch', lastName: 'Daniels', requesterID: '12345678',newRFQ: 2,
         Quotation: [
-            { QuotationID: '8F7DC3B9-12C9-4306-AC24-1B46BE322518', origin: 'SIN', destination: 'KUL', remarks: 'more discount if > 5000kg', status: 'Quoted', createDT: '2014-01-01 11:00', expireOn: '2014-01-22 11:00', validFrom: '2014-01-20 11:00', arrivalDT: '2014-01-21 13:00', departureDT: '2014-01-21 11:00', ratePerKg: '100', totalRate: '300' },
-            { QuotationID: 'CBD414EB-9EF5-4644-AA77-A32E51009242', origin: 'SIN', destination: 'KUL', remarks: '10% discount given', status: 'New', createDT: '2014-01-01 11:00', expireOn: '2014-01-22 11:00', validFrom: '2014-01-20 11:00', arrivalDT: '2014-01-21 13:00', departureDT: '2014-01-21 11:00', ratePerKg: '90', totalRate: '270' }
+            { QuotationID: '8F7DC3B9-12C9-4306-AC24-1B46BE322518', origin: 'SIN', destination: 'KUL', remarks: 'more discount if > 5000kg', status: 'New', createDT: '2014-01-01 11:00', expireOn: '2014-01-22 11:00', validFrom: '2014-01-20 11:00', arrivalDT: '2014-01-21 13:00', departureDT: '2014-01-21 11:00', ratePerKg: '100', totalRate: '300', recipient: 'kohch@ccn.com.sg' },
+            { QuotationID: 'CBD414EB-9EF5-4644-AA77-A32E51009242', origin: 'SIN', destination: 'KUL', remarks: '10% discount given', status: 'New', createDT: '2014-01-01 11:00', expireOn: '2014-01-22 11:00', validFrom: '2014-01-20 11:00', arrivalDT: '2014-01-21 13:00', departureDT: '2014-01-21 11:00', ratePerKg: '90', totalRate: '270', recipient: 'khaing@ccn.com.sg' },
+            { QuotationID: 'CBD121EB-9EF5-1234-AA11-5322110056AD', origin: 'SIN', destination: 'KUL', remarks: '', status: 'Pending', createDT: '', expireOn: '', validFrom: '', arrivalDT: '', departureDT: '', ratePerKg: '', totalRate: '', recipient: 'jenny@ccn.com.sg' }
         ]
     };
     
@@ -180,9 +181,9 @@ function getQuotationSummary() {
         idx ++;
             if (rfq.status == "Saved")
                 headerstyleclass = 'ui-bar ui-bar-c';
-            else if (rfq.status == "New")
+            else if (rfq.status == "Pending")
                 headerstyleclass = 'ui-bar ui-bar-e';
-            else if (rfq.status == "Quoted")
+            else if (rfq.status == "New")
                 headerstyleclass = 'ui-bar ui-bar-b';
             else if (rfq.status == "Won")
                 headerstyleclass = 'ui-bar ui-bar-d';
@@ -192,8 +193,8 @@ function getQuotationSummary() {
                 headerstyleclass = 'ui-bar ui-bar-f';
         $myQuotationSummary.append('<div class="ui-corner-all custom-corners"><a href="viewQuotationDetail.html" rel="external"><div class="' + headerstyleclass + '"><h3>Quotation ' + idx + '</h3></div></a><div class="ui-body ui-body-e"><table><tr><th>'
                                    + rfq.origin + ' - ' + rfq.destination + '</th><th>&nbsp;<th>&nbsp;</th><th>' + rfq.status + '</th></tr><tr><td colspan="4">&nbsp;' + rfq.remarks 
-                                   + '</td></tr><tr><td>&nbsp;' + rfq.ratePerKg + '</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;' + rfq.totalRate + '</td></tr><tr><td>&nbsp;' 
-                                   + 'Created Date<br />' + rfq.createDT + '</td><td>Depart Date<br />' + rfq.departureDT + '<br /></td><td>&nbsp;Arrival Date<br />' + rfq.arrivalDT + '<br /></td><td>&nbsp;Expiry Date<br />' 
+                                   + '</td></tr><tr><td>&nbsp;' + rfq.ratePerKg + '</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;' + rfq.totalRate + '</td></tr><tr><td>' 
+                                   + 'Created Date<br />' + rfq.createDT + '</td><td>Depart Date<br />' + rfq.departureDT + '<br /></td><td>Arrival Date<br />' + rfq.arrivalDT + '<br /></td><td>Expiry Date<br />' 
                                    + rfq.expireOn + '</td></tr></table></div></div><br />');
     }
 }

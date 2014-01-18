@@ -9,6 +9,23 @@
     border:none;
 }
 
+.count-red-small
+{
+	display: inline-block;
+	font-weight: 500;
+	font-size: 9pt;
+	color: #FFF;
+	background: #ff0000;
+	border: #666 1px solid;
+	padding: 0px 3px 3px 3px;
+	text-align: center;
+	line-height: 8pt;
+	-webkit-border-radius: 50%;
+	-khtml-border-radius: 50%;
+	border-radius: 50%;
+	float: left;
+	margin-right: 4px;
+}
 
 #menu{
     text-shadow:none;
