@@ -94,13 +94,12 @@
             });
             
             _handleDataForRFQDetail = function (data) {
-                
-                var obj = getObjWhenPropertyEquals(data.requestQuotation,'requestID', paramsval);
-                
+                var obj = getObjWhenPropertyEquals(data.requestQuotation, 'requestID', paramsval);
+            
                 showRfqData(obj);
             }
             
-            function showRfqData(data){
+            function showRfqData(data) {
                 $("#origin").val(data.origin);
                 $("#destination").val(data.destination);
                 $("#pieces").val(data.pieces);
@@ -114,9 +113,9 @@
                 $("#collectiondate").val("2013-12-31T15:35:52.52");
                 $("#exipreon").val("2013-12-31T15:35:52.52");
                 $("#validfrom").val("2013-12-31T15:35:52.52");
-                
-                if(data.status == "Pending" || data.status == "Saved"){                    
-                   $("#main_navbar ul").hide();
+            
+                if (data.status == "Pending" || data.status == "Saved") {                    
+                    $("#main_navbar ul").hide();
                 }                
             }
         </script>
@@ -148,23 +147,23 @@
                         <!-- Page 1-->
                         <div class="rfq_tab1">
                             <div data-role="fieldcontain">
-                                 <label for="origin">Origin:</label>
+                                <label for="origin">Origin:</label>
                                 <input type="text" id="origin" />
-                            
-                                 <label for="destination">Destination:</label>
-                                 <input type="text" id="destination" />
-                           
-                                 <label for="peices">Pieces:</label>
-                                  <input type="text" id="pieces"  />
-                            
-                                 <label for="weight">Weight:</label>
-                                   <input type="text" id="weight" />
-                           
-                                 <label for="volume">Volume:</label>
-                                   <input type="text" id="volume"  />
-                           
-                                 <label for="dimension">Dimension:</label>
-                                   <input type="text" id="dimension" />
+                                
+                                <label for="destination">Destination:</label>
+                                <input type="text" id="destination" />
+                                
+                                <label for="peices">Pieces:</label>
+                                <input type="text" id="pieces"  />
+                                
+                                <label for="weight">Weight:</label>
+                                <input type="text" id="weight" />
+                                
+                                <label for="volume">Volume:</label>
+                                <input type="text" id="volume"  />
+                                
+                                <label for="dimension">Dimension:</label>
+                                <input type="text" id="dimension" />
                             </div>
                             
                             <div class="ui-grid-a">
@@ -219,7 +218,7 @@
                         <div class="rfq_tab3 ui-screen-hidden">
                             <p>
                                 Your request for quotation is saved! <br><br>
-                            
+                                
                                 Click submit to send to the recipients now.
                             </p>
                             <div id="selectedrecipients">
@@ -260,24 +259,33 @@
         </div>
         <!-- main menu -->
         <nav id="menu">
-            <ul>
-                <li>
-                    <a href="main.html#home" class="Selected" rel="external">Home</a>
+            <ul data-role="listview">
+                <li class="Selected">
+                    <a href="main.html#home" rel="external">
+                        <img src="images/Home.png" height="16" width="16"> Home
+                    </a>
                 </li>
                 <li>
-                    <a href="createRFQ.html" rel="external">Create RFQ</a>
+                    <a href="createRFQ.html" rel="external">
+                        <img src="images/Create.png" height="16" width="16"> Create RFQ
+                    </a>
                 </li>
                 <li>
-                    <a href="main.html#search" rel="external">Search RFQ</a>
+                    <a href="main.html#search"  rel="external">
+                        <img src="images/Search.png" height="16" width="16"> Search RFQ
+                    </a>
                 </li>
                 <li>
-                    <a href="main.html#settings" rel="external">Settings</a>
+                    <a href="main.html#settings"  rel="external">
+                        <img src="images/Setting.png" height="16" width="16"> Settings
+                    </a>
                 </li>
                 <li>
-                    <a href="">Log Out</a>
+                    <a href="index.html" rel="external">
+                        <img src="images/Logout.png" height="16" width="16"> Log Out
+                    </a>
                 </li>
             </ul>
         </nav>
     </body>
 </html>
-    

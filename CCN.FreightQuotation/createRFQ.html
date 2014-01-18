@@ -70,15 +70,13 @@
             
             $(document).ready(function() {
                 //getContactsData();    
-                
                 $("#btnSave").click(function() {                    
                     var str = "";
                     $("select option:selected").each(function() {
                         str += $(this).text() + "<br>";
                     });
-                   
-                    $("#selectedrecipients").append("<p>" + str + "</p>");
             
+                    $("#selectedrecipients").append("<p>" + str + "</p>");
                     //Call webservice to save the RFQ.
                     //saveRFQData();
                 }),
@@ -192,7 +190,9 @@
 
             </div>
             <div data-role="content">
-                <img src="images/icon-request-quote.png">  
+                <div data-role="fieldcontain">
+                    <img src="images/CCN_RFQ.png">
+                </div>
                 <input type="text" id="origin" placeholder="Origin" />
                 <input type="text" id="destination" placeholder="Destination" />
                 <input type="number" id="peices" placeholder="Pieces" />
@@ -234,7 +234,7 @@
                     <option>
                         Choose recipients
                     </option>
-                     <option value="1">Jenny@ccn.com.sg</option>
+                    <option value="1">Jenny@ccn.com.sg</option>
                     <option value="2">khaing@ccn.com.sg</option>
                     <option value="3">kohch@ccn.com.sg</option>
                     <option value="4">melissa@ccn.com.sg</option>
@@ -263,7 +263,9 @@
         </div>
         <div id="createpage3" data-role="page">
             <div data-role="header" data-tap-toggle="false">
-                <div><a id="menubtn" href="#menu"></a></div>
+                <div>
+                    <a id="menubtn" href="#menu"></a>
+                </div>
                 <h1>New RFQ</h1>
             </div>
             <div data-role="content">
@@ -282,29 +284,39 @@
                     <div class="ui-block-b">
                         <a id="btnCancel" href="main.html#home" rel="external" data-role="button">Cancel</a>
                     </div>
-                </div>
-
+                </div>               
             </div>
         </div>
         <!-- main menu -->
         <nav id="menu">
             <ul data-role="listview">
                 <li>
-                    <a href="main.html#home" rel="external"><img src="images/Home.png" height="16" width="16">  Home</a>
+                    <a href="main.html#home" rel="external">
+                        <img src="images/Home.png" height="16" width="16"> Home
+                    </a>
                 </li>
                 <li class="Selected">
-                    <a href="createRFQ.html" rel="external"><img src="images/Create.png" height="16" width="16">  Create RFQ</a>
+                    <a href="createRFQ.html" rel="external">
+                        <img src="images/Create.png" height="16" width="16"> Create RFQ
+                    </a>
                 </li>
                 <li>
-                    <a href="main.html#search" rel="external"><img src="images/Search.png" height="16" width="16">  Search RFQ</a>
+                    <a href="main.html#search" rel="external">
+                        <img src="images/Search.png" height="16" width="16"> Search RFQ
+                    </a>
                 </li>
                 <li>
-                    <a href="main.html#settings" rel="external"><img src="images/Setting.png" height="16" width="16">  Settings</a>
+                    <a href="main.html#settings" rel="external">
+                        <img src="images/Setting.png" height="16" width="16"> Settings
+                    </a>
                 </li>
                 <li>
-                    <a href=""><img src="images/Logout.png" height="16" width="16">  Log Out</a>
+                    <a href="index.html" rel="external">
+                        <img src="images/Logout.png" height="16" width="16"> Log Out
+                    </a>
                 </li>
             </ul>
         </nav>
     </body>
 </html>
+    
