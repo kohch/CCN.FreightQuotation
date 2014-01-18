@@ -151,7 +151,7 @@ quotationApp.prototype = function() {
                 headerstyleclass = 'ui-bar ui-bar-f';
             $myRFQSummary.append('<div class="ui-corner-all custom-corners"><div><a href="viewRFQDetail.html?id="' + idx + ' rel="external"><div class="' + headerstyleclass + '"><h3>Request For Quotation ' + idx + '</h3></div></a></div><div class="ui-body ui-body-c"><table><tr><th>'
                                  + rfq.origin + ' - ' + rfq.destination + '</th><th>&nbsp;<th>&nbsp;</th><th>' + rfq.status + '</th></tr><tr><td colspan="4">&nbsp;' + rfq.goodsDescription 
-                                 + '</td></tr><tr><td>&nbsp;' + rfq.commodity + '</td><td>' + rfq.pieces + ' pcs</td><td>&nbsp;' + rfq.weight + ' kg</td><td>&nbsp;' + rfq.volume + ' cubic m</td></tr><tr><td>&nbsp;' 
+                                 + '</td></tr><tr><td>&nbsp;' + rfq.commodity + '</td><td>' + rfq.pieces + ' <b>pcs</b></td><td>&nbsp;' + rfq.weight + ' <b>kg</b></td><td>&nbsp;' + rfq.volume + ' <b>m³</b></td></tr><tr><td>&nbsp;' 
                                  + 'Created Date<br />' + rfq.createDT + '</td><td>LogeIn Date<br />' + rfq.LogeInDT + '<br /></td><td>&nbsp;Collection Date<br />' + rfq.collectionDT + '<br /></td><td>&nbsp;Expiry Date<br />' 
                                  + rfq.expireOn + '</td></tr></table></div></div><br />');
 
