@@ -128,7 +128,7 @@ quotationApp.prototype = function() {
         $.mobile.changePage('#home', { transition: 'flip' });
     };
     
-    _handleDataForRFQSummary = function (data) {
+    _handleDataForRFQSummary = function (data) {        
         $myRFQSummary = $('#myRFQSummaryListView');
         _rfqSummaryData = data;
         $('#ffname').text(data.firstName);
@@ -149,7 +149,7 @@ quotationApp.prototype = function() {
                 headerstyleclass = 'ui-bar ui-bar-a';
             else if (rfq.status == "No Flight")
                 headerstyleclass = 'ui-bar ui-bar-f';
-            $myRFQSummary.append('<div class="ui-corner-all custom-corners"><div><a href="viewRFQDetail.html?id="' + idx + ' rel="external"><div class="' + headerstyleclass + '"><h3>Request For Quotation ' + idx + '</h3></div></a></div><div class="ui-body ui-body-c"><table><tr><th>'
+            $myRFQSummary.append('<div class="ui-corner-all custom-corners"><div><a href="viewRFQDetail.html?rfq=' + rfq.requestID + '" rel="external"><div class="' + headerstyleclass + '"><h3>Request For Quotation ' + idx + '</h3></div></a></div><div class="ui-body ui-body-c"><table><tr><th>'
                                  + rfq.origin + ' - ' + rfq.destination + '</th><th>&nbsp;<th>&nbsp;</th><th>' + rfq.status + '</th></tr><tr><td colspan="4">&nbsp;' + rfq.goodsDescription 
                                  + '</td></tr><tr><td>&nbsp;' + rfq.commodity + '</td><td>' + rfq.pieces + ' <b>pcs</b></td><td>&nbsp;' + rfq.weight + ' <b>kg</b></td><td>&nbsp;' + rfq.volume + ' <b>m³</b></td></tr><tr><td>&nbsp;' 
                                  + 'Created Date<br />' + rfq.createDT + '</td><td>LogeIn Date<br />' + rfq.LogeInDT + '<br /></td><td>&nbsp;Collection Date<br />' + rfq.collectionDT + '<br /></td><td>&nbsp;Expiry Date<br />' 
@@ -196,4 +196,18 @@ function getQuotationSummary() {
                                    + 'Created Date<br />' + rfq.createDT + '</td><td>Depart Date<br />' + rfq.departureDT + '<br /></td><td>&nbsp;Arrival Date<br />' + rfq.arrivalDT + '<br /></td><td>&nbsp;Expiry Date<br />' 
                                    + rfq.expireOn + '</td></tr></table></div></div><br />');
     }
+}
+
+function getObjWhenPropertyEquals(obj, prop, val)
+{
+    for (var i = 0, l = obj.length; i < l; i++) {
+        // check the obj has the property before comparing it
+        if (typeof obj[i][prop] === 'undefined') continue;
+
+        // if the obj property equals our test value, return the obj
+        if (obj[i][prop] === val) return obj[i];
+    }
+
+    // didn't find an object with the property
+    return false;
 }

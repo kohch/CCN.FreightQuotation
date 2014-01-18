@@ -23,6 +23,7 @@
         <script type="text/javascript" src="scripts/jquery.mmenu.js"></script>
         <script type="text/javascript">
 
+            var paramsval = null;
             $(function() {
                 $('#menu').mmenu({
                     onClick		: {
@@ -83,8 +84,35 @@
                 
                 //var parameters = $(this).data("url").split("?")[1];                
                 //parameter = parameters.replace("parameter=", "");  
-                //alert($(this).data("url"));
+                var url = window.location.href;
+                var params = url.split("?");
+                paramsval = params[1].split("=")[1];                             
+                //alert(paramsval); 
+                
+                var rfqData = new rfqSummaryData(0);
+                rfqData.getDataforRFQSummary(null, _handleDataForRFQDetail);
             });
+            
+            _handleDataForRFQDetail = function (data) {
+                
+                var obj = getObjWhenPropertyEquals(data.requestQuotation,'requestID', paramsval);
+                
+                showRfqData(obj);
+            }
+            
+            function showRfqData(data){
+                $("#origin").val(data.origin);
+                $("#destination").val(data.destination);
+                $("#pieces").val(data.pieces);
+                $("#weight").val(data.weight);
+                $("#volume").val(data.volume);
+                $("#dimension").val(data.dimension);
+                $("#contactname").val(data.contactname);
+                $("#goodsdescription").val(data.goodsDescription);
+                $("#commodity").val(data.commodity);
+                $("#lodgeindate").val("2013-12-31T15:35:52.52");
+                
+            }
         </script>
     </head>
     <body>
@@ -97,10 +125,14 @@
                 <div data-role="navbar" id="main_navbar">
                     <ul>
                         <li>
-                            <a href="#" class="ui-btn-active" data-tab-class="main_tab1"><img src="images/RFQ_32.png" height="16" width="16"> RFQ</a>
+                            <a href="#" class="ui-btn-active" data-tab-class="main_tab1">
+                                <img src="images/RFQ_32.png" height="16" width="16"> RFQ
+                            </a>
                         </li>
                         <li>
-                            <a href="#" data-tab-class="main_tab2"><img src="images/quote_32.png" height="16" width="16"> 2 Quotations</a>
+                            <a href="#" data-tab-class="main_tab2">
+                                <img src="images/quote_32.png" height="16" width="16"> 2 Quotations
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -109,34 +141,48 @@
                         <!-- RFQ Detail Page-->
                         <!-- Page 1-->
                         <div class="rfq_tab1">
-                            <input type="text" id="origin" value="Origin" />
-                            <input type="text" id="destination" value="Destination" />
-                            <input type="text" id="peices" value="Pieces" />
-                            <input type="text" id="weight" value="Weight" />
-                            <input type="text" id="volume" value="1234" />
-                            <input type="text" id="dimension" value="Dimension" />
+                            <div data-role="fieldcontain">
+                                 <label for="origin">Origin:</label>
+                                <input type="text" id="origin" />
+                            
+                                 <label for="destination">Destination:</label>
+                                 <input type="text" id="destination" />
+                           
+                                 <label for="peices">Pieces:</label>
+                                  <input type="text" id="pieces"  />
+                            
+                                 <label for="weight">Weight:</label>
+                                   <input type="text" id="weight" />
+                           
+                                 <label for="volume">Volume:</label>
+                                   <input type="text" id="volume"  />
+                           
+                                 <label for="dimension">Dimension:</label>
+                                   <input type="text" id="dimension" />
+                            </div>
+                            
                             <div class="ui-grid-a">
-                                <div class="ui-block-a">
+                                <div class="ui-block-a" style="margin-top:5%">
                                     <label for="lodgeindate">Lodge In Date:</label>
                                 </div>
                                 <div class="ui-block-b">
-                                    <input type="date" name="lodgeindate" id="lodgeindate">
+                                    <input type="datetime-local" name="lodgeindate" id="lodgeindate">
                                 </div>
                             </div>
                             <div class="ui-grid-a">
-                                <div class="ui-block-a">
+                                <div class="ui-block-a" style="margin-top:5%">
                                     <label for="collectiondate">Collection Date:</label>
                                 </div>
-                                <div class="ui-block-b">
+                                <div class="ui-block-b" >
                                     <input type="date" name="collectiondate" id="collectiondate">
                                 </div>
                             </div>
                         </div>
                         <!-- Page 2-->
                         <div class="rfq_tab2 ui-screen-hidden">
-                            <input type="text" id="contactname" value="Contact Name" />
-                            <textarea name="goodsdescription" id="goodsdescription" value ="Goods Description"></textarea>
-                            <input type="text" id="commodity" value="Commodity" />
+                            <input type="text" id="contactname" />
+                            <textarea name="goodsdescription" id="goodsdescription"></textarea>
+                            <input type="text" id="commodity" />
                             <select name="recipients" multiple="multiple" data-native-menu="false">
                                 <option>Choose recipients</option>
                                 <option value="1" selected>Jenny@ccn.com.sg</option>
@@ -167,7 +213,7 @@
                         <div class="rfq_tab3 ui-screen-hidden">
                             <p>
                                 Your request for quotation is saved! <br><br>
-                                
+                            
                                 Click submit to send to the recipients now.
                             </p>
                             <div id="selectedrecipients">
@@ -228,3 +274,4 @@
         </nav>
     </body>
 </html>
+    
