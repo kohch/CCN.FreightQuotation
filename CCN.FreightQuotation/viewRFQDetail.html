@@ -80,7 +80,6 @@
                 if (rfqStatus != "saved") {                    
                     $("#rfq_navbar ul li").last().hide();
                 }  
-                
                 //var parameters = $(this).data("url").split("?")[1];                
                 //parameter = parameters.replace("parameter=", "");  
                 //alert($(this).data("url"));
@@ -90,22 +89,43 @@
     <body>
         <div id="viewDetail" data-role="page">
             <div data-role="header" data-tap-toggle="false">
-                <a id="menubtn" href="#menu"></a>
+                <span>
+                    <a id="menubtn" href="#menu"></a>
+                </span>
                 <h1>RFQ Detail</h1>
             </div>
             <div data-role="content">
                 <div data-role="navbar" id="main_navbar">
                     <ul>
                         <li>
-                            <a href="#" class="ui-btn-active" data-tab-class="main_tab1"><img src="images/RFQ_32.png" height="16" width="16"> RFQ</a>
+                            <a href="#" class="ui-btn-active" data-tab-class="main_tab1">
+                                <img src="images/RFQ_32.png" height="16" width="16"> RFQ
+                            </a>
                         </li>
                         <li>
-                            <a href="#" data-tab-class="main_tab2"><img src="images/quote_32.png" height="16" width="16"> 2 Quotations</a>
+                            <a href="#" data-tab-class="main_tab2">
+                                <img src="images/quote_32.png" height="16" width="16"> Quotations <span class="count-red-small">2</span>
+                            </a>
                         </li>
                     </ul>
                 </div>
                 <div class="tab-content">
                     <div class="main_tab1">
+                        <div>
+                            <div data-role="navbar" id="rfq_navbar">
+                                <ul>
+                                    <li>
+                                        <a href="#" class="ui-btn-active" data-tab-class="rfq_tab1">1</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-tab-class="rfq_tab2">2</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-tab-class="rfq_tab3">3</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                         <!-- RFQ Detail Page-->
                         <!-- Page 1-->
                         <div class="rfq_tab1">
@@ -141,7 +161,7 @@
                                 <option>Choose recipients</option>
                                 <option value="1" selected>Jenny@ccn.com.sg</option>
                                 <option value="2" selected>khaing@ccn.com.sg</option>
-                                <option value="3">kohch@ccn.com.sg</option>
+                                <option value="3" selected>kohch@ccn.com.sg</option>
                                 <option value="4">melissa@ccn.com.sg</option>
                                 <option value="5">KK@ccn.com.sg</option>
                                 <option value="6">Hussain@ccn.com.sg</option>
@@ -180,21 +200,7 @@
                             <input id="btnSubmit" type="submit" value="Submit" />
                         </div>
                         <!-- footer -->
-                        <div>
-                            <div data-role="navbar" id="rfq_navbar">
-                                <ul>
-                                    <li>
-                                        <a href="#" class="ui-btn-active" data-tab-class="rfq_tab1">1</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" data-tab-class="rfq_tab2">2</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" data-tab-class="rfq_tab3">3</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                        
                     </div>
                     <div class="main_tab2 ui-screen-hidden">
                         <!-- Quotation Summary Page-->
@@ -208,21 +214,31 @@
         </div>
         <!-- main menu -->
         <nav id="menu">
-            <ul>
+            <ul data-role="listview">
                 <li>
-                    <a href="main.html#home" class="Selected" rel="external">Home</a>
+                    <a href="main.html#home" rel="external">
+                        <img src="images/Home.png" height="16" width="16"> Home
+                    </a>
                 </li>
                 <li>
-                    <a href="createRFQ.html" rel="external">Create RFQ</a>
+                    <a href="createRFQ.html" rel="external">
+                        <img src="images/Create.png" height="16" width="16"> Create RFQ
+                    </a>
                 </li>
                 <li>
-                    <a href="main.html#search" rel="external">Search RFQ</a>
+                    <a href="main.html#search" rel="external">
+                        <img src="images/Search.png" height="16" width="16"> Search RFQ
+                    </a>
                 </li>
                 <li>
-                    <a href="main.html#settings" rel="external">Settings</a>
+                    <a href="main.html#settings" rel="external">
+                        <img src="images/Setting.png" height="16" width="16"> Settings
+                    </a>
                 </li>
                 <li>
-                    <a href="">Log Out</a>
+                    <a href="">
+                        <img src="images/Logout.png" height="16" width="16"> Log Out
+                    </a>
                 </li>
             </ul>
         </nav>

@@ -68,69 +68,113 @@
                 ); 
             
             $(document).ready(function() {
+                var rfq_prevSelection = "rfq_tab1"; 
+                $("#rfq_navbar ul li").click(function() {
+                    var rfq_newSelection = $(this).children("a").attr("data-tab-class");
+                    $("." + rfq_prevSelection).addClass("ui-screen-hidden");
+                    $("." + rfq_newSelection).removeClass("ui-screen-hidden");
+                    rfq_prevSelection = rfq_newSelection;                    
+                })
             });                 
         </script>
     </head>
     <body>
-        <div id="quotationDetail1" data-role="page">
+        <div id="quotationDetail" data-role="page">
             <div data-role="header" data-tap-toggle="false">
-                <span><a id="menubtn" href="#menu"></a></span>
+                <span>
+                    <a id="menubtn" href="#menu"></a>
+                </span>
                 <h1>Quotation Detail</h1>
-                <span ><a href="viewRFQDetail.html#viewDetail" rel="external"  data-role="button">Back</a></span>
             </div>
             <div data-role="content">
-                <input type="text" id="origin" placeholder="Origin" />
-                <input type="text" id="destination" placeholder="Destination" />
-                <input type="text" id="status" placeholder="Status" />
-                <input type="text" id="ratePerKg" placeholder="Rate Per Kg" />
-                <input type="text" id="totalRate" placeholder="Total Rate" />
-                <textarea name="remarks" id="remarks" placeholder ="Remarks"></textarea>
-                <label for="departureDate">Departure Date:</label>
-                <input type="date" name="departuredate" id="departuredate">
-                <label for="arrivalDate">Arrival Date:</label>
-                <input type="date" name="arrivaldate" id="arrivaldate">
-                <a href="QuotationDetail.html#quotationDetail2" data-role="button">Next</a>
-            </div>
-        </div>
-        <div id="quotationDetail2" data-role="page">
-            <div data-role="header" data-tap-toggle="false">
-                <a id="menubtn" href="#menu"></a>
-                <h1>Quotation Detail</h1>
-                <a href="viewQuotationDetail.html#quotationDetail1" data-role="button">Back</a>
-            </div>
-            <div data-role="content">
-                <input type="text" id="contactname" placeholder="Contact Name" />
-                <label for="validfrom">Valid From:</label>
-                <input type="date" name="validfrom" id="validfrom">
-                <label for="exipreon">Expire On:</label>
-                <input type="date" name="exipreon" id="expireon">
-                <div class="ui-grid-a">
-                    <div class="ui-block-a">
-                        <a id="btnAccept" href="viewRFQDetail.html#viewDetail" rel="external" data-role="button">Accept</a>
-                    </div>
-                    <div class="ui-block-b">
-                        <a id="btnReject" href="viewRFQDetail.html#viewDetail" rel="external" data-role="button">Reject</a>
+                
+                <div class="tab-content">
+                    <div class="main_tab1">
+                        <div>
+                            <div data-role="navbar" id="rfq_navbar">
+                                <ul>
+                                    <li>
+                                        <a href="#" class="ui-btn-active" data-tab-class="rfq_tab1">1</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-tab-class="rfq_tab2">2</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-tab-class="rfq_tab3">3</a>
+                                    </li>
+                                    <li>
+                                        <a href="viewRFQDetail.html" rel="external" data-role="button" data-icon="back">Back</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="rfq_tab1">
+                            
+                            <label for="origin">Origin:</label>
+                            <input type="text" id="origin" placeholder="Origin" />
+                            <label for="destination">Destination:</label>
+                            <input type="text" id="destination" placeholder="Destination" />
+                            <label for="status">Status:</label>
+                            <input type="text" id="status" placeholder="Status" />
+                            <label for="ratePerKg">Rate per Kg:</label>
+                            <input type="text" id="ratePerKg" placeholder="Rate Per Kg" />
+                            <label for="totalRate">Total Rate:</label>
+                            <input type="text" id="totalRate" placeholder="Total Rate" />
+                            <label for="remarks">Remarks:</label>
+                            <textarea name="remarks" id="remarks" placeholder ="Remarks"></textarea>
+                        </div>
+                        <!-- Page 2-->
+                        <div class="rfq_tab2 ui-screen-hidden">
+                            <label for="departureDate">Departure Date:</label>
+                            <input type="date" name="departuredate" id="departuredate">
+                            <label for="arrivalDate">Arrival Date:</label>
+                            <input type="date" name="arrivaldate" id="arrivaldate">
+                            <label for="validfrom">Valid From:</label>
+                            <input type="date" name="validfrom" id="validfrom">
+                            <label for="exipreon">Expire On:</label>
+                            <input type="date" name="exipreon" id="expireon">
+                            
+                        </div>
+                        <!-- Page 3-->
+                        <div class="rfq_tab3 ui-screen-hidden">
+                            <p>
+                            <img src="images/icon-quotation.png"></p>
+                            <p>
+                                Your request for quotation is quoted. <br><br>
+
+                                Click below reply to send to the recipient now.
+                            </p>
+                            <input type="text" id="recipient" placeholder="Recipient Email" />
+                            <div class="ui-grid-a">
+                                <div class="ui-block-a">
+                                    <a id="btnAccept" href="viewRFQDetail.html#viewDetail" rel="external" data-role="button">Accept</a>
+                                </div>
+                                <div class="ui-block-b">
+                                    <a id="btnReject" href="viewRFQDetail.html#viewDetail" rel="external" data-role="button">Reject</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- main menu -->
         <nav id="menu">
-            <ul>
+            <ul data-role="listview">
                 <li>
-                    <a href="main.html#home" rel="external">Home</a>
-                </li>
-                <li  class="Selected">
-                    <a href="createRFQ.html">Create RFQ</a>
+                    <a href="main.html#home" rel="external"><img src="images/Home.png" height="16" width="16">  Home</a>
                 </li>
                 <li>
-                    <a href="main.html#search" rel="external">Search RFQ</a>
+                    <a href="createRFQ.html" rel="external"><img src="images/Create.png" height="16" width="16">  Create RFQ</a>
                 </li>
                 <li>
-                    <a href="main.html#settings" rel="external">Settings</a>
+                    <a href="main.html#search" rel="external"><img src="images/Search.png" height="16" width="16">  Search RFQ</a>
                 </li>
                 <li>
-                    <a href="">Log Out</a>
+                    <a href="main.html#settings" rel="external"><img src="images/Setting.png" height="16" width="16">  Settings</a>
+                </li>
+                <li>
+                    <a href=""><img src="images/Logout.png" height="16" width="16">  Log Out</a>
                 </li>
             </ul>
         </nav>
