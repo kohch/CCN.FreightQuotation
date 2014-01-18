@@ -3,17 +3,17 @@
     <head>
         <title></title>
         <meta charset="UTF-8" />
-        
+
         <!--<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile.structure-1.4.0.min.css" />
-		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-		<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>-->
+        <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>-->
 
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
         <link type="text/css" rel="stylesheet" href="styles/jquery.mmenu.css" />
         <link type="text/css" rel="stylesheet" href="styles/main.css" />
         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
-        
+
         <!-- uncoment viewport meta tag, if targeting Android 4.x.x devices -->
         <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
         <script src="cordova.js" type="text/javascript"></script>
@@ -80,11 +80,9 @@
                 });                  
             });        
             
-            $('#viewRFQDetail.html').on('pagebeforeshow',function(){
-
-    alert($(this).data("url"))
-
-});
+            $('#viewRFQDetail.html').on('pagebeforeshow', function() {
+                alert($(this).data("url"))
+            });
             
         </script>
     </head>
@@ -100,12 +98,12 @@
                 </h1>
             </div>
             <div data-role="content">
-                <img src="images/QuotationRequested.png">                
+                <img src="images/QuotationRequested.png">
                 <div id="myRFQSummaryListView" data-inset="true" data-theme="d">
                 </div>
             </div>
         </div>
-        
+
         <!-- search page -->
         <div id="search" data-role="page">
             <div data-role="header" data-tap-toggle="false">
@@ -160,7 +158,7 @@
                 <input id="btnSearch" data-icon="search" type="submit" value="Search" />
             </div>
         </div>
-        
+
         <!-- settings page -->
         <div id="settings" data-role="page">
             <div data-role="header" data-tap-toggle="false">
@@ -170,27 +168,47 @@
                 <h1>Settings</h1>
             </div>
             <div data-role="content">
-                
+
             </div>
         </div>
-        
+        <div data-role="popup" id="popupDialog" data-overlay-theme="a" data-theme="c" style="max-width:400px;" class="ui-corner-all">
+            <div data-role="header" data-theme="a" class="ui-corner-top">
+                <h1>Logout?</h1>
+            </div>
+            <div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+                <h5>Are you sure you want to logout?</h5>
+                <a href="index.html" rel="external" data-role="button" data-inline="true" data-transition="flow" data-theme="b">OK</a>
+                <a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="c">Cancel</a>
+            </div>
+        </div>
         <!-- main menu -->
         <nav id="menu">
             <ul data-role="listview">
                 <li class="Selected">
-                    <a href="main.html#home"><img src="images/Home.png" height="16" width="16">  Home</a>
+                    <a href="main.html#home">
+                        <img src="images/Home.png" height="16" width="16"> Home
+                    </a>
                 </li>
                 <li>
-                    <a href="createRFQ.html" rel="external"><img src="images/Create.png" height="16" width="16">  Create RFQ</a>
+                    <a href="createRFQ.html" rel="external">
+                        <img src="images/Create.png" height="16" width="16"> Create RFQ
+                    </a>
                 </li>
                 <li>
-                    <a href="main.html#search"><img src="images/Search.png" height="16" width="16">  Search RFQ</a>
+                    <a href="main.html#search">
+                        <img src="images/Search.png" height="16" width="16"> Search RFQ
+                    </a>
                 </li>
                 <li>
-                    <a href="main.html#settings"><img src="images/Setting.png" height="16" width="16">  Settings</a>
+                    <a href="main.html#settings">
+                        <img src="images/Setting.png" height="16" width="16"> Settings
+                    </a>
                 </li>
                 <li>
-                    <a href=""><img src="images/Logout.png" height="16" width="16">  Log Out</a>
+                    <a href="#popupDialog" data-rel="popup" data-position-to="window" data-inline="true" data-transition="pop">
+                        <!--<a href="#popupDialog" rel="external" data-rel="popup">-->
+                        <img src="images/Logout.png" height="16" width="16"> Log Out
+                    </a>
                 </li>
             </ul>
         </nav>

@@ -111,7 +111,13 @@
                 $("#goodsdescription").val(data.goodsDescription);
                 $("#commodity").val(data.commodity);
                 $("#lodgeindate").val("2013-12-31T15:35:52.52");
+                $("#collectiondate").val("2013-12-31T15:35:52.52");
+                $("#exipreon").val("2013-12-31T15:35:52.52");
+                $("#validfrom").val("2013-12-31T15:35:52.52");
                 
+                if(data.status == "Pending" || data.status == "Saved"){                    
+                   $("#main_navbar ul").hide();
+                }                
             }
         </script>
     </head>
@@ -174,7 +180,7 @@
                                     <label for="collectiondate">Collection Date:</label>
                                 </div>
                                 <div class="ui-block-b" >
-                                    <input type="date" name="collectiondate" id="collectiondate">
+                                    <input type="datetime-local" name="collectiondate" id="collectiondate">
                                 </div>
                             </div>
                         </div>
@@ -193,19 +199,19 @@
                                 <option value="6">Hussain@ccn.com.sg</option>
                             </select>
                             <div class="ui-grid-a">
-                                <div class="ui-block-a">
+                                <div class="ui-block-a" style="margin-top:5%">
                                     <label for="validfrom">Valid From:</label>
                                 </div>
                                 <div class="ui-block-b">
-                                    <input type="date" name="validfrom" id="validfrom">
+                                    <input type="datetime-local" name="validfrom" id="validfrom">
                                 </div>
                             </div>
                             <div class="ui-grid-a">
-                                <div class="ui-block-a">
+                                <div class="ui-block-a" style="margin-top:5%">
                                     <label for="exipreon">Expire On:</label>
                                 </div>
                                 <div class="ui-block-b">
-                                    <input type="date" name="exipreon" id="exipreon">
+                                    <input type="datetime-local" name="exipreon" id="exipreon">
                                 </div>
                             </div>
                         </div>
