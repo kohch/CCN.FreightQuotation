@@ -67,19 +67,23 @@
                     $("." + rfq_newSelection).removeClass("ui-screen-hidden");
                     rfq_prevSelection = rfq_newSelection;                    
                 }),
-                $("#btnSubmit").click(function() {                    
-                    alert("Call webservice to submit the RFQ.");
+                $("#btnSubmitbtnSubmit").click(function() {                    
+                    alert("RFQ is submitted successfully.");
                 });
                 
                 //call web service here
-                alert("Call webservice here to get rfq details.");
+                //alert("Call webservice here to get rfq details.");
                 getQuotationSummary();
                 
                 //show/hide submit RFQ page based on RFQ status.
                 var rfqStatus = "pending";
                 if (rfqStatus != "saved") {                    
                     $("#rfq_navbar ul li").last().hide();
-                }           
+                }  
+                
+                //var parameters = $(this).data("url").split("?")[1];                
+                //parameter = parameters.replace("parameter=", "");  
+                //alert($(this).data("url"));
             });
         </script>
     </head>
@@ -87,7 +91,7 @@
         <div id="viewDetail" data-role="page">
             <div data-role="header" data-tap-toggle="false">
                 <a id="menubtn" href="#menu"></a>
-                <h1>View RFQ</h1>
+                <h1>RFQ Detail</h1>
             </div>
             <div data-role="content">
                 <div data-role="navbar" id="main_navbar">
@@ -135,8 +139,8 @@
                             <input type="text" id="commodity" value="Commodity" />
                             <select name="recipients" multiple="multiple" data-native-menu="false">
                                 <option>Choose recipients</option>
-                                <option value="1">Jenny@ccn.com.sg</option>
-                                <option value="2">khaing@ccn.com.sg</option>
+                                <option value="1" selected>Jenny@ccn.com.sg</option>
+                                <option value="2" selected>khaing@ccn.com.sg</option>
                                 <option value="3">kohch@ccn.com.sg</option>
                                 <option value="4">melissa@ccn.com.sg</option>
                                 <option value="5">KK@ccn.com.sg</option>
@@ -163,7 +167,7 @@
                         <div class="rfq_tab3 ui-screen-hidden">
                             <p>
                                 Your request for quotation is saved! <br><br>
-
+                                
                                 Click submit to send to the recipients now.
                             </p>
                             <div id="selectedrecipients">
