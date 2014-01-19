@@ -77,7 +77,12 @@
                     $.mobile.changePage("#home", {
                         transition: 'fade'                       
                     });
-                });                  
+                });  
+                $("#btnSettings").click(function() {                    
+                    $.mobile.changePage("#home", {
+                        transition: 'fade'                       
+                    });
+                });  
             });        
             
             $('#viewRFQDetail.html').on('pagebeforeshow', function() {
@@ -114,7 +119,7 @@
                 </div>
                 <h1>Search</h1>
             </div>
-            <div data-role="content">                
+            <div data-role="content">
                 <input type="text" id="origin" placeholder="Origin" />
                 <input type="text" id="destination" placeholder="Destination" />
                 <input type="text" id="commodity" placeholder="Commodity" />
@@ -170,38 +175,51 @@
             </div>
             <div data-role="content">
 
+                <fieldset data-role="controlgroup" data-mini="true">
+                    <legend>I want to receive notification when<br/><br/><br/></legend>
+                    <input type="radio" name="radio-choice" id="radio-choice-1" value="choice-1" checked="checked" />
+                    <label for="radio-choice-1">My request for quotation is expired</label>
+
+                    <input type="radio" name="radio-choice" id="radio-choice-2" value="choice-2"  />
+                    <label for="radio-choice-2">New quotation is received</label>
+
+                    <input type="radio" name="radio-choice" id="radio-choice-3" value="choice-3"  />
+                    <label for="radio-choice-3">Quotation is expired</label>
+
+                </fieldset>
+                <br/><br/><br/>
+                <input id="btnSettings" type="submit" value="Save" />
             </div>
-        </div>
-        <!-- main menu -->
-        <nav id="menu">
-            <ul data-role="listview">
-                <li class="Selected">
-                    <a href="main.html#home">
-                        <img src="images/Home.png" height="16" width="16"> Home
-                    </a>
-                </li>
-                <li>
-                    <a href="createRFQ.html" rel="external">
-                        <img src="images/Create.png" height="16" width="16"> Create RFQ
-                    </a>
-                </li>
-                <li>
-                    <a href="main.html#search">
-                        <img src="images/Search.png" height="16" width="16"> Search RFQ
-                    </a>
-                </li>
-                <li>
-                    <a href="main.html#settings">
-                        <img src="images/Setting.png" height="16" width="16"> Settings
-                    </a>
-                </li>
-                <li>
-                    <a href="index.html" rel="external">
-                        <img src="images/Logout.png" height="16" width="16"> Log Out
-                    </a>
-                </li>
-            </ul>
-        </nav>
+            <!-- main menu -->
+            <nav id="menu">
+                <ul data-role="listview">
+                    <li class="Selected">
+                        <a href="main.html#home">
+                            <img src="images/Home.png" height="16" width="16"> Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="createRFQ.html" rel="external">
+                            <img src="images/Create.png" height="16" width="16"> Create RFQ
+                        </a>
+                    </li>
+                    <li>
+                        <a href="main.html#search">
+                            <img src="images/Search.png" height="16" width="16"> Search RFQ
+                        </a>
+                    </li>
+                    <li>
+                        <a href="main.html#settings">
+                            <img src="images/Setting.png" height="16" width="16"> Settings
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html" rel="external">
+                            <img src="images/Logout.png" height="16" width="16"> Log Out
+                        </a>
+                    </li>
+                </ul>
+            </nav>
     </body>
 </html>
 <script>
