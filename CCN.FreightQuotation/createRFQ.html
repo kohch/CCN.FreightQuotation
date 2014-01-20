@@ -77,6 +77,7 @@
                     });
             
                     $("#selectedrecipients").append("<p>" + str + "</p>");
+            
                     //Call webservice to save the RFQ.
                     //saveRFQData();
                 }),
@@ -182,7 +183,7 @@
     </head>
     <body>
         <div id="createpage1" data-role="page">
-            <div data-role="header" data-tap-toggle="false">
+            <div data-role="header" data-tap-toggle="false"  style="padding-top:15px">
                 <div>
                     <a id="menubtn" href="#menu"></a>
                 </div>
@@ -190,9 +191,7 @@
 
             </div>
             <div data-role="content">
-                <div data-role="fieldcontain">
-                    <img src="images/CCN_RFQ.png">
-                </div>
+                <img src="images/icon-request-quote.png">
                 <input type="text" id="origin" placeholder="Origin" />
                 <input type="text" id="destination" placeholder="Destination" />
                 <input type="number" id="peices" placeholder="Pieces" />
@@ -204,7 +203,7 @@
                         <label for="lodgeindate">Lodge In Date:</label>
                     </div>
                     <div class="ui-block-b">
-                        <input type="date" name="lodgeindate" id="lodgeindate">
+                        <input type="datetime-local" name="lodgeindate" id="lodgeindate">
                     </div>
                 </div>
                 <div class="ui-grid-a">
@@ -212,7 +211,7 @@
                         <label for="collectiondate">Collection Date:</label>
                     </div>
                     <div class="ui-block-b">
-                        <input type="date" name="collectiondate" id="collectiondate">
+                        <input type="datetime-local" name="collectiondate" id="collectiondate">
                     </div>
                 </div>
 
@@ -221,7 +220,7 @@
             </div>
         </div>
         <div id="createpage2" data-role="page">
-            <div data-role="header" data-tap-toggle="false">
+            <div data-role="header" data-tap-toggle="false"  style="padding-top:15px">
                 <a id="menubtn" href="#menu"></a>
                 <h1>New RFQ</h1>
                 <a href="createRFQ.html#createpage1" data-role="button" data-icon="back">Back</a>
@@ -262,7 +261,7 @@
             </div>
         </div>
         <div id="createpage3" data-role="page">
-            <div data-role="header" data-tap-toggle="false">
+            <div data-role="header" data-tap-toggle="false" style="padding-top:15px">
                 <div>
                     <a id="menubtn" href="#menu"></a>
                 </div>
@@ -284,7 +283,8 @@
                     <div class="ui-block-b">
                         <a id="btnCancel" href="main.html#home" rel="external" data-role="button">Cancel</a>
                     </div>
-                </div>               
+                </div>
+
             </div>
         </div>
         <!-- main menu -->
@@ -319,4 +319,3 @@
         </nav>
     </body>
 </html>
-    

@@ -81,7 +81,6 @@
                 if (rfqStatus != "saved") {                    
                     $("#rfq_navbar ul li").last().hide();
                 }  
-                
                 //var parameters = $(this).data("url").split("?")[1];                
                 //parameter = parameters.replace("parameter=", "");  
                 var url = window.location.href;
@@ -122,8 +121,10 @@
     </head>
     <body>
         <div id="viewDetail" data-role="page">
-            <div data-role="header" data-tap-toggle="false">
-                <a id="menubtn" href="#menu"></a>
+            <div data-role="header" data-tap-toggle="false" style="padding-top:15px">
+                <span>
+                    <a id="menubtn" href="#menu"></a>
+                </span>
                 <h1>RFQ Detail</h1>
             </div>
             <div data-role="content">
@@ -136,101 +137,13 @@
                         </li>
                         <li>
                             <a href="#" data-tab-class="main_tab2">
-                                <img src="images/quote_32.png" height="16" width="16"> 2 Quotations
+                                <img src="images/quote_32.png" height="16" width="16"> Quotations <span class="count-red-small">2</span>
                             </a>
                         </li>
                     </ul>
                 </div>
                 <div class="tab-content">
                     <div class="main_tab1">
-                        <!-- RFQ Detail Page-->
-                        <!-- Page 1-->
-                        <div class="rfq_tab1">
-                            <div data-role="fieldcontain">
-                                <label for="origin">Origin:</label>
-                                <input type="text" id="origin" />
-                                
-                                <label for="destination">Destination:</label>
-                                <input type="text" id="destination" />
-                                
-                                <label for="peices">Pieces:</label>
-                                <input type="text" id="pieces"  />
-                                
-                                <label for="weight">Weight:</label>
-                                <input type="text" id="weight" />
-                                
-                                <label for="volume">Volume:</label>
-                                <input type="text" id="volume"  />
-                                
-                                <label for="dimension">Dimension:</label>
-                                <input type="text" id="dimension" />
-                            </div>
-                            
-                            <div class="ui-grid-a">
-                                <div class="ui-block-a" style="margin-top:5%">
-                                    <label for="lodgeindate">Lodge In Date:</label>
-                                </div>
-                                <div class="ui-block-b">
-                                    <input type="datetime-local" name="lodgeindate" id="lodgeindate">
-                                </div>
-                            </div>
-                            <div class="ui-grid-a">
-                                <div class="ui-block-a" style="margin-top:5%">
-                                    <label for="collectiondate">Collection Date:</label>
-                                </div>
-                                <div class="ui-block-b" >
-                                    <input type="datetime-local" name="collectiondate" id="collectiondate">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Page 2-->
-                        <div class="rfq_tab2 ui-screen-hidden">
-                            <input type="text" id="contactname" />
-                            <textarea name="goodsdescription" id="goodsdescription"></textarea>
-                            <input type="text" id="commodity" />
-                            <select name="recipients" multiple="multiple" data-native-menu="false">
-                                <option>Choose recipients</option>
-                                <option value="1" selected>Jenny@ccn.com.sg</option>
-                                <option value="2" selected>khaing@ccn.com.sg</option>
-                                <option value="3">kohch@ccn.com.sg</option>
-                                <option value="4">melissa@ccn.com.sg</option>
-                                <option value="5">KK@ccn.com.sg</option>
-                                <option value="6">Hussain@ccn.com.sg</option>
-                            </select>
-                            <div class="ui-grid-a">
-                                <div class="ui-block-a" style="margin-top:5%">
-                                    <label for="validfrom">Valid From:</label>
-                                </div>
-                                <div class="ui-block-b">
-                                    <input type="datetime-local" name="validfrom" id="validfrom">
-                                </div>
-                            </div>
-                            <div class="ui-grid-a">
-                                <div class="ui-block-a" style="margin-top:5%">
-                                    <label for="exipreon">Expire On:</label>
-                                </div>
-                                <div class="ui-block-b">
-                                    <input type="datetime-local" name="exipreon" id="exipreon">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Page 3-->
-                        <div class="rfq_tab3 ui-screen-hidden">
-                            <p>
-                                Your request for quotation is saved! <br><br>
-                                
-                                Click submit to send to the recipients now.
-                            </p>
-                            <div id="selectedrecipients">
-                                <p>
-                                    recipient 1 <br>
-                                    recipient 2 <br>
-                                    recipient 3
-                                </p>
-                            </div>
-                            <input id="btnSubmit" type="submit" value="Submit" />
-                        </div>
-                        <!-- footer -->
                         <div>
                             <div data-role="navbar" id="rfq_navbar">
                                 <ul>
@@ -246,6 +159,107 @@
                                 </ul>
                             </div>
                         </div>
+                        <!-- RFQ Detail Page-->
+                        <!-- Page 1-->
+                        <div class="rfq_tab1">
+                            <div data-role="fieldcontain">
+                                <label for="origin">Origin:</label>
+                                <input type="text" id="origin" />
+
+                                <label for="destination">Destination:</label>
+                                <input type="text" id="destination" />
+
+                                <label for="peices">Pieces:</label>
+                                <input type="text" id="pieces"  />
+
+                                <label for="weight">Weight:</label>
+                                <input type="text" id="weight" />
+
+                                <label for="volume">Volume:</label>
+                                <input type="text" id="volume"  />
+
+                                <label for="dimension">Dimension:</label>
+                                <input type="text" id="dimension" />
+                            </div>
+
+                            <div class="ui-grid-a">
+                                <div class="ui-block-a" style="margin-top:5%">
+                                    <label for="lodgeindate">Lodge In Date:</label>
+                                </div>
+                                <div class="ui-block-b">
+                                    <input type="datetime-local" name="lodgeindate" id="lodgeindate">
+                                </div>
+                            </div>
+                            <div class="ui-grid-a">
+                                <div class="ui-block-a" style="margin-top:5%">
+                                    <label for="collectiondate">Collection Date:</label>
+                                </div>
+                                <div class="ui-block-b">
+                                    <input type="datetime-local" name="collectiondate" id="collectiondate">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Page 2-->
+                        <div class="rfq_tab2 ui-screen-hidden">
+                            <div data-role="fieldcontain">
+                                <label for="contactname">Contact Name:</label>
+                                <input type="text" id="contactname" />
+                                <label for="goodsdescription">Goods Description:</label>
+                                <textarea name="goodsdescription" id="goodsdescription"></textarea>
+                                <label for="commodity">Commodity:</label>
+                                <input type="text" id="commodity" />
+                                <label for="recipients">Recipients:</label>
+                                <!-- <select name="recipients" multiple="multiple" data-native-menu="false">
+                                <option value="1" selected>Jenny@ccn.com.sg</option>
+                                <option value="2" selected>khaing@ccn.com.sg</option>
+                                <option value="3" selected>kohch@ccn.com.sg</option>
+                                <option value="4">melissa@ccn.com.sg</option>
+                                <option value="5">KK@ccn.com.sg</option>
+                                <option value="6">Hussain@ccn.com.sg</option>
+                                </select>-->
+                                <div id="selectedrecipients" class="ui-bar ui-bar-c">
+                                    <p>
+                                        Jenny@ccn.com.sg<br/>
+                                        khaing@ccn.com.sg<br/>
+                                        kohch@ccn.com.sg<br/>
+                                    </p>
+                                </div>                               
+                            </div>
+                            <div class="ui-grid-a">
+                                <div class="ui-block-a" style="margin-top:5%">
+                                    <label for="validfrom">Valid From:</label>
+                                </div>
+                                <div class="ui-block-b">
+                                    <input type="date" name="validfrom" id="validfrom">
+                                </div>
+                            </div>
+                            <div class="ui-grid-a">
+                                <div class="ui-block-a" style="margin-top:5%">
+                                    <label for="exipreon">Expire On:</label>
+                                </div>
+                                <div class="ui-block-b">
+                                    <input type="date" name="exipreon" id="exipreon">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Page 3-->
+                        <div class="rfq_tab3 ui-screen-hidden">
+                            <p>
+                                Your request for quotation is saved! <br><br>
+
+                                Click submit to send to the recipients now.
+                            </p>
+                            <div id="selectedrecipients">
+                                <p>
+                                    recipient 1 <br>
+                                    recipient 2 <br>
+                                    recipient 3
+                                </p>
+                            </div>
+                            <input id="btnSubmit" type="submit" value="Submit" />
+                        </div>
+                        <!-- footer -->
+
                     </div>
                     <div class="main_tab2 ui-screen-hidden">
                         <!-- Quotation Summary Page-->
@@ -260,7 +274,7 @@
         <!-- main menu -->
         <nav id="menu">
             <ul data-role="listview">
-                <li class="Selected">
+                <li>
                     <a href="main.html#home" rel="external">
                         <img src="images/Home.png" height="16" width="16"> Home
                     </a>
@@ -271,12 +285,12 @@
                     </a>
                 </li>
                 <li>
-                    <a href="main.html#search"  rel="external">
+                    <a href="main.html#search" rel="external">
                         <img src="images/Search.png" height="16" width="16"> Search RFQ
                     </a>
                 </li>
                 <li>
-                    <a href="main.html#settings"  rel="external">
+                    <a href="main.html#settings" rel="external">
                         <img src="images/Setting.png" height="16" width="16"> Settings
                     </a>
                 </li>

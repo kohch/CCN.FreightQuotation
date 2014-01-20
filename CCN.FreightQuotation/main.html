@@ -77,7 +77,12 @@
                     $.mobile.changePage("#home", {
                         transition: 'fade'                       
                     });
-                });                  
+                });   
+                $("#btnSettings").click(function() {                    
+                    $.mobile.changePage("#home", {
+                        transition: 'fade'                       
+                    });
+                });  
             });        
             
             $('#viewRFQDetail.html').on('pagebeforeshow', function() {
@@ -89,18 +94,16 @@
     <body>
         <!-- Summary page -->
         <div id="home" data-role="page" data-mini="true">
-            <div id="header" data-role="header" data-tap-toggle="false">
+            <div id="header" data-role="header" data-tap-toggle="false" style="padding-top:15px">
                 <div>
                     <a id="menubtn" href="#menu"></a>
                 </div>
                 <h1>
-                    Hi <span id="ffname"></span>!
+                    Hi <span id="ffname"></span>
                 </h1>
             </div>
             <div data-role="content">
-                <div data-role="fieldcontain">
-                    <img src="images/QuotationRequested.png">
-                </div>
+                <img src="images/RequestedQuotation.png">
                 <div id="myRFQSummaryListView" data-inset="true" data-theme="d">
                 </div>
             </div>
@@ -108,13 +111,14 @@
 
         <!-- search page -->
         <div id="search" data-role="page">
-            <div data-role="header" data-tap-toggle="false">
+            <div data-role="header" data-tap-toggle="false" style="padding-top:15px">
                 <div>
                     <a id="menubtn" href="#menu"></a>
                 </div>
                 <h1>Search</h1>
             </div>
-            <div data-role="content">                
+            <div data-role="content">
+                <img src="images/Search_RFQ.png">
                 <input type="text" id="origin" placeholder="Origin" />
                 <input type="text" id="destination" placeholder="Destination" />
                 <input type="text" id="commodity" placeholder="Commodity" />
@@ -162,7 +166,7 @@
 
         <!-- settings page -->
         <div id="settings" data-role="page">
-            <div data-role="header" data-tap-toggle="false">
+            <div data-role="header" data-tap-toggle="false" style="padding-top:15px">
                 <div>
                     <a id="menubtn" href="#menu"></a>
                 </div>
@@ -170,6 +174,22 @@
             </div>
             <div data-role="content">
 
+                <fieldset data-role="controlgroup" data-mini="true">
+                    <legend>
+                        I want to receive notification when<br/><br/><br/>
+                    </legend>
+                    <input type="checkbox" name="radio-choice" id="radio-choice-1" value="choice-1" checked="checked" />
+                    <label for="radio-choice-1">My request for quotation is expired</label>
+                    
+                    <input type="checkbox" name="radio-choice" id="radio-choice-2" value="choice-2"  />
+                    <label for="radio-choice-2">New quotation is received</label>
+
+                    <input type="checkbox" name="radio-choice" id="radio-choice-3" value="choice-3"  />
+                    <label for="radio-choice-3">Quotation is expired</label>
+
+                </fieldset>
+                <br/><br/><br/>
+                <input id="btnSettings" type="submit" value="Save" />
             </div>
         </div>
         <!-- main menu -->
@@ -208,5 +228,11 @@
     var rfqData = new rfqSummaryData(2000);
     var rfqApp = new quotationApp();
     rfqApp.run();
+    if (typeof(Storage)!=="undefined") {
+        $('#ffname').text(sessionStorage.userID);
+    }
+    else {
+        alert("Sorry, your browser does not support web storage...");
+    }
 </script>
-
+    
