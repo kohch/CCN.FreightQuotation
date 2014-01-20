@@ -58,21 +58,20 @@ var rfqSummaryData = function(timeToLoad) {
 rfqSummaryData.prototype = function() {
   
     var requestSummary = {
-        firstName: 'Steve', lastName: 'Daniels', requesterID: '12345678',newRFQ: 2,
+        firstName: 'kohch', lastName: 'Daniels', requesterID: '12345678',newRFQ: 2,
         requestQuotation: [
-			{ requestID: 'F56F1962-3C60-47D6-BE22-74BC4D3B8952', origin: 'SIN', destination: 'KUL',pieces: '140', weight: '1100', volume: '2110',dimension:'3300', status: 'Saved', createDT: '2014-01-01 11:00', expireOn: '2014-01-22 11:00', LogeInDT: '2014-01-20 11:00', collectionDT: '2014-01-21 11:00', commodity: '', goodsDescription: 'My Book1', contactname:'Mr.Brown' },
-			{ requestID: 'BA720F62-4F43-4BA3-B5FE-AD25EDC1BAC1', origin: 'KUL', destination: 'HKG',pieces: '240', weight: '2100', volume: '3120',dimension:'3300', status: 'Pending', createDT: '2014-01-01 12:00', expireOn: '2014-01-23 11:00', LogeInDT: '2014-01-21 12:00', collectionDT: '2014-01-21 11:00', commodity: '', goodsDescription: 'My Text2', contactname:'Mr.White' },
-            { requestID: '78A40C39-1E6D-4F54-ACCE-A7FD489C111F', origin: 'SYN', destination: 'DEL',pieces: '340', weight: '3500', volume: '3020',dimension:'3300', status: 'Quoted', createDT: '2014-01-02 13:00', expireOn: '2014-01-21 11:00', LogeInDT: '2014-01-20 13:00', collectionDT: '2014-01-21 11:00', commodity: '', goodsDescription: 'My Home3', contactname:'Mr.Smith' },
-            { requestID: '8563527F-453A-4C9B-9FE7-F12BF1A12F94', origin: 'HKG', destination: 'SIN',pieces: '440', weight: '4200', volume: '21300',dimension:'3300', status: 'Accepted', createDT: '2014-01-02 15:00', expireOn: '2014-01-23 11:00', LogeInDT: '2014-01-21 14:00', collectionDT: '2014-01-21 11:00', commodity: '', goodsDescription: 'Book2', contactname:'Ms.Steph' },
-            { requestID: 'B7567C91-F982-4576-A270-B2C2ECCEEAB0', origin: 'SIN', destination: 'HKG',pieces: '540', weight: '200', volume: '7300', dimension:'3300',status: 'Rejected', createDT: '2014-01-03 10:00', expireOn: '2014-01-22 11:00', LogeInDT: '2014-01-20 15:00', collectionDT: '2014-01-21 11:00', commodity: '', goodsDescription: 'Home2', contactname:'Mrs.Tom' },
-            { requestID: 'C1234C91-F982-4576-A270-B2C2ECCEEAB0', origin: 'SIN', destination: 'SYD',pieces: '5140', weight: '2200', volume: '4300',dimension:'3300', status: 'No Flight', createDT: '2014-01-13 10:00', expireOn: '2014-01-30 11:00', LogeInDT: '2014-01-24 15:00', collectionDT: '2014-01-25 11:00', commodity: '', goodsDescription: 'My Notebook 5', contactname:'Mr.Jacob' },
+			{ requestID: 'F56F1962-3C60-47D6-BE22-74BC4D3B8952', origin: 'SIN', destination: 'KUL',pieces: '140', weight: '1100', volume: '2110', status: 'Saved', createDT: '2014-01-01 11:00', expireOn: '2014-01-22 11:00', LogeInDT: '2014-01-20 11:00', collectionDT: '2014-01-21 11:00', commodity: '', goodsDescription: 'My Book1' },
+			{ requestID: 'BA720F62-4F43-4BA3-B5FE-AD25EDC1BAC1', origin: 'KUL', destination: 'HKG',pieces: '240', weight: '2100', volume: '3120', status: 'Pending', createDT: '2014-01-01 12:00', expireOn: '2014-01-23 11:00', LogeInDT: '2014-01-21 12:00', collectionDT: '2014-01-21 11:00', commodity: '', goodsDescription: 'My Text2' },
+            { requestID: '78A40C39-1E6D-4F54-ACCE-A7FD489C111F', origin: 'SYN', destination: 'DEL',pieces: '340', weight: '3500', volume: '3020', status: 'Quoted', createDT: '2014-01-02 13:00', expireOn: '2014-01-21 11:00', LogeInDT: '2014-01-20 13:00', collectionDT: '2014-01-21 11:00', commodity: '', goodsDescription: 'My Home3' },
+            { requestID: '8563527F-453A-4C9B-9FE7-F12BF1A12F94', origin: 'HKG', destination: 'SIN',pieces: '440', weight: '4200', volume: '21300', status: 'Saved', createDT: '2014-01-02 15:00', expireOn: '2014-01-23 11:00', LogeInDT: '2014-01-21 14:00', collectionDT: '2014-01-21 11:00', commodity: '', goodsDescription: 'Book2' },
+            { requestID: 'B7567C91-F982-4576-A270-B2C2ECCEEAB0', origin: 'SIN', destination: 'HKG',pieces: '540', weight: '200', volume: '7300', status: 'Pending', createDT: '2014-01-03 10:00', expireOn: '2014-01-22 11:00', LogeInDT: '2014-01-20 15:00', collectionDT: '2014-01-21 11:00', commodity: '', goodsDescription: 'Home2' },
 		]
 	},
     
-	getDataforRFQSummary = function(id, callback) {        
-		//fauxAjax(function () {
+	getDataforRFQSummary = function(id, callback) {
+		fauxAjax(function () {
 			callback(requestSummary);
-		//}, 'loading data ...', this);
+		}, 'loading data ...', this);
 	},
     
 	logOn = function (uid, pwd, callback) {
@@ -81,7 +80,7 @@ rfqSummaryData.prototype = function() {
 		}, 'logging in ...', this);
 	},
     
-	fauxAjax = function fauxAjax(func, text, thisObj) {       
+	fauxAjax = function fauxAjax(func, text, thisObj) {
 		$.mobile.loading('show', { theme: 'a', textVisible: true, text:text });
 		window.setTimeout(function () {
 			$.mobile.loading('hide');
