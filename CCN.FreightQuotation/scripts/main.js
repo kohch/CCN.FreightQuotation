@@ -164,7 +164,7 @@ quotationApp.prototype = function() {
             }
             $myRFQSummary.append('<div class="ui-corner-all custom-corners"><div><a href="' + refURL + '" rel="external"><div class="' + headerstyleclass + '"><h3>Request For Quotation ' + idx + '</h3">&nbsp;&nbsp;&nbsp;&nbsp;<span text-align="right"><h6>' + rfq.createDT + '</h6></span></div></a></div><div class="ui-body ui-body-c"><table><tr><th>'
                                  + rfq.origin + ' - ' + rfq.destination + '</th><th>&nbsp;<th>&nbsp;</th><th>' + rfq.status + '</th></tr><tr><td colspan="4">&nbsp;' + rfq.goodsDescription 
-                                 + '</td></tr><tr><td>&nbsp;' + rfq.commodity + '</td><td>' + rfq.pieces + ' <b>pcs</b></td><td>&nbsp;' + rfq.weight + ' <b>kg</b></td><td>&nbsp;' + rfq.volume + ' <b>mÂ³</b></td></tr><tr><td>' 
+                                 + '</td></tr><tr><td>&nbsp;' + rfq.commodity + '</td><td>' + rfq.pieces + ' <b>pcs</b></td><td>&nbsp;' + rfq.weight + ' <b>kg</b></td><td>&nbsp;' + rfq.volume + ' <b>m³</b></td></tr><tr><td>' 
                                  + 'Valid Date<br />' + rfq.validFrom + '</td><td>LogeIn Date<br />' + rfq.LogeInDT + '<br /></td><td>Collection Date<br />' + rfq.collectionDT + '<br /></td><td>Expiry Date<br />' 
                                  + rfq.expireOn + '</td></tr></table></div><br />');
         }
