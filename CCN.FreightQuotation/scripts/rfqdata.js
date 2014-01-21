@@ -1,4 +1,4 @@
-var quotationData = function(timeToLoad) {
+/*var quotationData = function(timeToLoad) {
     this.busyTime = timeToLoad || 1000;
 };
 
@@ -48,7 +48,7 @@ quotationData.prototype = function() {
         getDataforFF:getDataforFF
     }
 }();
-
+*/
 var rfqSummaryData = function(timeToLoad) {
     this.busyTime = timeToLoad || 1000;
 };
